@@ -1,0 +1,84 @@
+﻿  main.cpp
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(34,3): warning C4984: "if constexpr" 是一种 C++17 语言扩展
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(750,34): warning C4267: “=”: 从“size_t”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(766,34): warning C4267: “=”: 从“size_t”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(841,45): warning C4267: “=”: 从“size_t”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(853,49): warning C4267: “=”: 从“size_t”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1019,21): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1030,19): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1047,17): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1254,25): warning C4267: “=”: 从“size_t”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1255,25): warning C4267: “=”: 从“size_t”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1383,32): warning C4267: “=”: 从“size_t”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1384,32): warning C4267: “=”: 从“size_t”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1483,11): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1484,11): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1601,47): warning C4244: “参数”: 从“_Ty”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=double
+          ]
+          and
+          [
+              _Ty=int
+          ]
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1604,33): warning C4267: “参数”: 从“size_t”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1623,11): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1624,11): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1841,32): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1847,32): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1858,43): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1942,21): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1972,13): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(1973,30): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(2272,30): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(2525,43): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(2543,45): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(2604,27): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(2856,33): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(2861,23): warning C4267: “参数”: 从“size_t”转换到“unsigned int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(2863,56): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(2864,55): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangs\source\repos\BPMBN\BPMBN\src\main.cpp(2866,67): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  正在生成代码
+  16 of 1353 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    5 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  BPMBN.vcxproj -> C:\Users\wangs\source\repos\BPMBN\x64\Release\BPMBN.exe
