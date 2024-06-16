@@ -63,7 +63,7 @@ public:
 
 // Generates a random Directed Acyclic Graph
 vector<vector<int>> GenerateRandomDAG(int numVertices, std::mt19937& gen) {
-	int expectedEdges = static_cast<int>(numVertices * log(log(numVertices))); // ÆÚÍû±ßÊı
+	int expectedEdges = static_cast<int>(numVertices * log(log(numVertices))); // æœŸæœ›è¾¹æ•°
 
 	// Initialize vertices with values [1, numVertices]
 	vector<int> vertices(numVertices);
@@ -128,42 +128,42 @@ public:
 	Bayesnet(){cout<<"the constructor of Bayesnet()"<<endl;};
 	~Bayesnet(){cout<<"the destructor of Bayesnet()"<<endl;};
 	void print();
-	//¸ù¾İ¶¥µãÊıºÍÁ¬Ğø±äÁ¿±ÈÀıÒÔ¼°Ö¤¾İ±äÁ¿¸öÊı£¬¶Ô±´Ò¶Ë¹ÍøÖĞµÄ¸÷¸öÔªËØĞ´Öµ
+	//æ ¹æ®é¡¶ç‚¹æ•°å’Œè¿ç»­å˜é‡æ¯”ä¾‹ä»¥åŠè¯æ®å˜é‡ä¸ªæ•°ï¼Œå¯¹è´å¶æ–¯ç½‘ä¸­çš„å„ä¸ªå…ƒç´ å†™å€¼
     void inBayesnet(int Ver, double cpro, int evidnum, std::mt19937& gen);
-	void Print();     //Êä³ö¶ÁÈëµÄÍ¼
+	void Print();     //è¾“å‡ºè¯»å…¥çš„å›¾
 protected:
-   vector<vector<int> > verFa;    //V¸ö¶¥µã¼°Æä¸¸½Úµã¼¯£¬Ã¿Ò»¸öÊÇ±´Ò¶Ë¹ÍøµÄ»ù±¾½á¹¹¡ª¡ª¼Ò×å,¸¸¼¯´ÓĞ¡ºÅµ½´óºÅ´æ´¢
-   vector<vector<int> > verChi;   //verChi[k]±íÊ¾¶¥µãk+1¼°Æä×Ó½áµãµÄ¼¯ºÏ
-   vector<vector<int> > verdisFa; //V¸ö¶¥µãµÄ¼Ò×åÖĞÀëÉ¢±äÁ¿¼¯
-   vector<vector<int> > verconFa; //V¸ö¶¥µãµÄ¼Ò×åÖĞÁ¬Ğø±äÁ¿¼¯
-   vector<vector<int> > state;    //V¸ö¶¥µã¼°Æä¸¸½Úµã¼¯ÖĞ¾ßÌåµÄÀëÉ¢×´Ì¬ÁĞ±í,¸ú¼Ò×åÖĞÀëÉ¢±äÁ¿´æÈ¡Ë³ĞòÓĞ¹Ø
-   vector<vector<double> > prob;  //V¸ö¶¥µã·Ö²¼ĞÅÏ¢ÁĞ±í,¸ú¼Ò×åÖĞÁ¬Ğø±äÁ¿µÄ´æÈ¡Ë³ĞòÓĞ¹Ø
+   vector<vector<int> > verFa;    //Vä¸ªé¡¶ç‚¹åŠå…¶çˆ¶èŠ‚ç‚¹é›†ï¼Œæ¯ä¸€ä¸ªæ˜¯è´å¶æ–¯ç½‘çš„åŸºæœ¬ç»“æ„â€”â€”å®¶æ—,çˆ¶é›†ä»å°å·åˆ°å¤§å·å­˜å‚¨
+   vector<vector<int> > verChi;   //verChi[k]è¡¨ç¤ºé¡¶ç‚¹k+1åŠå…¶å­ç»“ç‚¹çš„é›†åˆ
+   vector<vector<int> > verdisFa; //Vä¸ªé¡¶ç‚¹çš„å®¶æ—ä¸­ç¦»æ•£å˜é‡é›†
+   vector<vector<int> > verconFa; //Vä¸ªé¡¶ç‚¹çš„å®¶æ—ä¸­è¿ç»­å˜é‡é›†
+   vector<vector<int> > state;    //Vä¸ªé¡¶ç‚¹åŠå…¶çˆ¶èŠ‚ç‚¹é›†ä¸­å…·ä½“çš„ç¦»æ•£çŠ¶æ€åˆ—è¡¨,è·Ÿå®¶æ—ä¸­ç¦»æ•£å˜é‡å­˜å–é¡ºåºæœ‰å…³
+   vector<vector<double> > prob;  //Vä¸ªé¡¶ç‚¹åˆ†å¸ƒä¿¡æ¯åˆ—è¡¨,è·Ÿå®¶æ—ä¸­è¿ç»­å˜é‡çš„å­˜å–é¡ºåºæœ‰å…³
    vector<vector<double> > probcon;
 
-   vector<int> distrnum;  //¸÷¸ö¶¥µãÓµÓĞµÄ·Ö²¼¸öÊı£¬ÓÉ¼Ò×åÖĞÀëÉ¢±äÁ¿È¡¼¸¸öÖµ¾ö¶¨
-   vector<int> dcver;     //ÃèÊö¸÷¸ö¶¥µãÊÇÀëÉ¢µÄ£¬»¹ÊÇÁ¬ĞøµÄ
-   vector<int> valnum;    //ÃèÊöÀëÉ¢±äÁ¿µÄÈ¡Öµ¸öÊı£¬Á¬Ğø±äÁ¿µÄÈ¡Öµ¸öÊı¼ÇÎª1
+   vector<int> distrnum;  //å„ä¸ªé¡¶ç‚¹æ‹¥æœ‰çš„åˆ†å¸ƒä¸ªæ•°ï¼Œç”±å®¶æ—ä¸­ç¦»æ•£å˜é‡å–å‡ ä¸ªå€¼å†³å®š
+   vector<int> dcver;     //æè¿°å„ä¸ªé¡¶ç‚¹æ˜¯ç¦»æ•£çš„ï¼Œè¿˜æ˜¯è¿ç»­çš„
+   vector<int> valnum;    //æè¿°ç¦»æ•£å˜é‡çš„å–å€¼ä¸ªæ•°ï¼Œè¿ç»­å˜é‡çš„å–å€¼ä¸ªæ•°è®°ä¸º1
 
-   	vector<int> elabel;           //Ö¤¾İ±êÇ©£¬elabel[k]=0±íÊ¾±äÁ¿k+1²»ÊÇÖ¤¾İ£¬elabel[k]=1±íÊ¾±äÁ¿k+1ÊÇÖ¤¾İ
-    vector<int> disevid;          //ÀëÉ¢Ö¤¾İ±äÁ¿¼¯
-	vector<int> disevidsta;       //ÀëÉ¢Ö¤¾İ±äÁ¿µÄ×´Ì¬
-	vector<int> conevid;          //Á¬ĞøÖ¤¾İ±äÁ¿¼¯
-	vector<double> conevidval;    //Á¬ĞøÖ¤¾İ±äÁ¿µÄÈ¡Öµ
+   	vector<int> elabel;           //è¯æ®æ ‡ç­¾ï¼Œelabel[k]=0è¡¨ç¤ºå˜é‡k+1ä¸æ˜¯è¯æ®ï¼Œelabel[k]=1è¡¨ç¤ºå˜é‡k+1æ˜¯è¯æ®
+    vector<int> disevid;          //ç¦»æ•£è¯æ®å˜é‡é›†
+	vector<int> disevidsta;       //ç¦»æ•£è¯æ®å˜é‡çš„çŠ¶æ€
+	vector<int> conevid;          //è¿ç»­è¯æ®å˜é‡é›†
+	vector<double> conevidval;    //è¿ç»­è¯æ®å˜é‡çš„å–å€¼
 
 
-   int V;                //¶¥µã¸öÊı
+   int V;                //é¡¶ç‚¹ä¸ªæ•°
 };
 
 
 void Bayesnet::inBayesnet(int Ver, double cpro, int evidnum, std::mt19937& gen){
-       //cout<<"¶¥µãÊıÎª "<<Ver<<" Á¬Ğø±äÁ¿±ÈÀıÎª "<<cpro<<" Ö¤¾İ±äÁ¿¸öÊıÎª "<<evidnum<<" µÄËæ»ú±´Ò¶Ë¹Íø:"<<endl;
+       //cout<<"é¡¶ç‚¹æ•°ä¸º "<<Ver<<" è¿ç»­å˜é‡æ¯”ä¾‹ä¸º "<<cpro<<" è¯æ®å˜é‡ä¸ªæ•°ä¸º "<<evidnum<<" çš„éšæœºè´å¶æ–¯ç½‘:"<<endl;
        int i,j,m,n,k,l;
        vector<int> vec,ve;
        vector<double> vec1,vec2,vec3;
        V=Ver;
 	   verFa = GenerateRandomDAG(V, gen);
-       int conv=static_cast<int> (V*cpro);  //Á¬Ğø±äÁ¿¸öÊı
-       int disv=V-conv;                     //ÀëÉ¢±äÁ¿¸öÊı,ÈÃÀëÉ¢±äÁ¿ÅÅÔÚÇ°Ãæ
+       int conv=static_cast<int> (V*cpro);  //è¿ç»­å˜é‡ä¸ªæ•°
+       int disv=V-conv;                     //ç¦»æ•£å˜é‡ä¸ªæ•°,è®©ç¦»æ•£å˜é‡æ’åœ¨å‰é¢
 
        verChi.clear();
        verdisFa.clear();
@@ -175,9 +175,9 @@ void Bayesnet::inBayesnet(int Ver, double cpro, int evidnum, std::mt19937& gen){
        distrnum.clear();
        dcver.clear();
        valnum.clear();
-       //ÈÃ±êºÅĞ¡µÄ±äÁ¿ÊÇÀëÉ¢±äÁ¿£¬±êºÅ´óµÄ±äÁ¿ÊÇÁ¬Ğø±äÁ¿
+       //è®©æ ‡å·å°çš„å˜é‡æ˜¯ç¦»æ•£å˜é‡ï¼Œæ ‡å·å¤§çš„å˜é‡æ˜¯è¿ç»­å˜é‡
        for(i=0;i<V;i++){if(i<disv) dcver.push_back(-1);else dcver.push_back(-2);}
-       //ÕâÀïÈÃÀëÉ¢±äÁ¿µÄÈ¡Öµ¸öÊı¶¼Îª2
+       //è¿™é‡Œè®©ç¦»æ•£å˜é‡çš„å–å€¼ä¸ªæ•°éƒ½ä¸º2
        for(i=0;i<V;i++){if(i<disv) valnum.push_back(2);else valnum.push_back(1);}
 
        for(k=0;k<V;k++){
@@ -229,15 +229,15 @@ void Bayesnet::inBayesnet(int Ver, double cpro, int evidnum, std::mt19937& gen){
 	   for (i = 0; i < V; i++) {
 		   vec1.clear();
 		   vec3.clear();
-		   if (dcver[i] == -1) { //ÀëÉ¢±äÁ¿¸ÅÂÊµÄ²úÉú»úÖÆ
+		   if (dcver[i] == -1) { //ç¦»æ•£å˜é‡æ¦‚ç‡çš„äº§ç”Ÿæœºåˆ¶
 			   vec2.clear();
 			   for (j = 0; j < distrnum[i]; j++) {
 				   vec2.push_back(RandGen::uniformProb(0, 1, gen));
 			   }
-			   acc = accumulate(vec2.begin(), vec2.end(), 0.0); //¼ÆËãÀÛ»ı×ÜºÍ
+			   acc = accumulate(vec2.begin(), vec2.end(), 0.0); //è®¡ç®—ç´¯ç§¯æ€»å’Œ
 
-			   // Ê¹ÓÃ std::transform Ìî³ä vec1
-			   vec1.reserve(vec2.size()); // Ô¤·ÖÅäËùĞè¿Õ¼ä
+			   // ä½¿ç”¨ std::transform å¡«å…… vec1
+			   vec1.reserve(vec2.size()); // é¢„åˆ†é…æ‰€éœ€ç©ºé—´
 			   std::transform(vec2.begin(), vec2.end(), std::back_inserter(vec1), [acc](double x) { return x / acc; });
 
 			   vec3 = vec1;
@@ -251,7 +251,7 @@ void Bayesnet::inBayesnet(int Ver, double cpro, int evidnum, std::mt19937& gen){
 				   }
 			   }
 		   }
-		   else {  //Á¬Ğø±äÁ¿¸ÅÂÊµÄ²úÉú»úÖÆ
+		   else {  //è¿ç»­å˜é‡æ¦‚ç‡çš„äº§ç”Ÿæœºåˆ¶
 			   for (j = 0; j < distrnum[i]; j++) {
 				   for (k = 0; k < verconFa[i].size() + 1; k++) {
 					   pr = RandGen::uniformProb(1e-10, 1.0, gen);
@@ -274,8 +274,8 @@ void Bayesnet::inBayesnet(int Ver, double cpro, int evidnum, std::mt19937& gen){
     conevidval.clear();
     vector<int> tv;
     tv.clear();
-    for(i=0;i<V;i++){tv.push_back(i+1); }//ÉèÖÃ¶¥µã¼¯
-	std::shuffle(tv.begin(), tv.end(), gen); //Ëæ»ú²úÉúÖ¤¾İ±äÁ¿¼¯
+    for(i=0;i<V;i++){tv.push_back(i+1); }//è®¾ç½®é¡¶ç‚¹é›†
+	std::shuffle(tv.begin(), tv.end(), gen); //éšæœºäº§ç”Ÿè¯æ®å˜é‡é›†
 
     for(j=0;j<evidnum;j++){
        if(dcver[tv[j]-1]==-1){elabel[tv[j]-1]=1;disevid.push_back(tv[j]);}
@@ -299,66 +299,66 @@ void Bayesnet::print(){
 }
 
 
-class MoralG : public Bayesnet{     //µÀÒåÍ¼MoralG,ÊÇ´ÓBayesnet¼Ì³Ğ¶øÀ´
+class MoralG : public Bayesnet{     //é“ä¹‰å›¾MoralG,æ˜¯ä»Bayesnetç»§æ‰¿è€Œæ¥
 public:
        MoralG(){cout<<"the constructor of MoralG()"<<endl;};
 	   void inMoralG();
 	   ~MoralG(){cout<<"the deconstructor of MoralG()"<<endl;};
 protected:
-       vector<vector<int> > moradj; //moradj[k]±íÊ¾µÀÒåÍ¼ÖĞ¶¥µãk+1¼°Óëk+1ÏàÁÚµÄ¶¥µã¼¯
+       vector<vector<int> > moradj; //moradj[k]è¡¨ç¤ºé“ä¹‰å›¾ä¸­é¡¶ç‚¹k+1åŠä¸k+1ç›¸é‚»çš„é¡¶ç‚¹é›†
 };
 
-class StarMG : public MoralG{       //ĞÇÍ¼ÊÇ´ÓµÀÒåÍ¼¼Ì³Ğ¶øÀ´
+class StarMG : public MoralG{       //æ˜Ÿå›¾æ˜¯ä»é“ä¹‰å›¾ç»§æ‰¿è€Œæ¥
 public:
        StarMG(){cout<<"the constructor of StarMG()"<<endl;};
        void inStarMG();
 	   ~StarMG(){cout<<"the deconstructor of StarMG()"<<endl;};
 protected:
-	   vector<vector<int> > staradj;//¼ÓÈëĞÇ½ÚµãV+1,staradj[V]ÊÇĞÇ½Úµã¼°ÆäÏàÁÚµÄ¶¥µã
+	   vector<vector<int> > staradj;//åŠ å…¥æ˜ŸèŠ‚ç‚¹V+1,staradj[V]æ˜¯æ˜ŸèŠ‚ç‚¹åŠå…¶ç›¸é‚»çš„é¡¶ç‚¹
 };
 
-class OperonG: public StarMG{       //Í¼ÉÏµÄ²Ù×÷,ÓÃÀ´¹¹½¨µÀÒåÍ¼µÄ¼«Ğ¡mÈı½Ç»¯Í¼ÖĞÍÅµÄjunction tree
+class OperonG: public StarMG{       //å›¾ä¸Šçš„æ“ä½œ,ç”¨æ¥æ„å»ºé“ä¹‰å›¾çš„æå°mä¸‰è§’åŒ–å›¾ä¸­å›¢çš„junction tree
 public:
 	 OperonG(){cout<<"the constructor of OperonG()"<<endl;};
 	 void inOperonG();
-	 void Snumbering();                 //¶ÔĞÇÍ¼Ê¹ÓÃmcs-mËã·¨ÅÅĞò
-     int Compare();                     //±È½ÏÈ¨ÖØ´óĞ¡£¬·µ»ØÈ¨ÖØ×î´óµÄµã
-	 int Updateweight(int k, int l);    //ĞÇÍ¼ÖĞ¶¥µãk±»±àºÅµÄÊ±ºò£¬Î´±àºÅ¶¥µãlµÄÈ¨ÖØÊÇ·ñÔö¼Ó
+	 void Snumbering();                 //å¯¹æ˜Ÿå›¾ä½¿ç”¨mcs-mç®—æ³•æ’åº
+     int Compare();                     //æ¯”è¾ƒæƒé‡å¤§å°ï¼Œè¿”å›æƒé‡æœ€å¤§çš„ç‚¹
+	 int Updateweight(int k, int l);    //æ˜Ÿå›¾ä¸­é¡¶ç‚¹kè¢«ç¼–å·çš„æ—¶å€™ï¼Œæœªç¼–å·é¡¶ç‚¹lçš„æƒé‡æ˜¯å¦å¢åŠ 
 
-	 void Morsmcs();           //¶ÔµÀÒåÍ¼µÄ¼«Ğ¡MÈı½Ç»¯Í¼Ê¹ÓÃSmcsËã·¨
-     int Mcompare();           //±È½ÏÈ¨ÖØ´óĞ¡£¬·µ»ØÈ¨ÖØ×î´óµÄµã£¬Èç¹ûÀëÉ¢µãÓëÁ¬ĞøµãÈ¨ÖØÒ»Ñù×î´ó£¬·µ»ØÀëÉ¢µã
-	 void Mupdate(int k);      //¶¥µãk±»±àºÅÊ±£¬¸üĞÂËüµÄÎ´±àºÅµÄÁÚµãµÄÈ¨ÖØ
+	 void Morsmcs();           //å¯¹é“ä¹‰å›¾çš„æå°Mä¸‰è§’åŒ–å›¾ä½¿ç”¨Smcsç®—æ³•
+     int Mcompare();           //æ¯”è¾ƒæƒé‡å¤§å°ï¼Œè¿”å›æƒé‡æœ€å¤§çš„ç‚¹ï¼Œå¦‚æœç¦»æ•£ç‚¹ä¸è¿ç»­ç‚¹æƒé‡ä¸€æ ·æœ€å¤§ï¼Œè¿”å›ç¦»æ•£ç‚¹
+	 void Mupdate(int k);      //é¡¶ç‚¹kè¢«ç¼–å·æ—¶ï¼Œæ›´æ–°å®ƒçš„æœªç¼–å·çš„é‚»ç‚¹çš„æƒé‡
 
-     int Complete(vector<int> vec);      //¼ìÑéµã¼¯ÔÚµÀÒåÍ¼µÄ¼«Ğ¡MÈı½Ç»¯Í¼ÖĞÊÇ·ñÍêÈ«
+     int Complete(vector<int> vec);      //æ£€éªŒç‚¹é›†åœ¨é“ä¹‰å›¾çš„æå°Mä¸‰è§’åŒ–å›¾ä¸­æ˜¯å¦å®Œå…¨
 
-	 void Constructtree();        //¹¹½¨µÀÒåÍ¼µÄ¼«Ğ¡mÈı½Ç»¯Í¼ÖĞÍÅµÄjunction tree
-	 int Mverpos();               //¼ÇÂ¼ÏÂµãÓëÍÅµÄÎ»ÖÃµÄ¹ØÏµ,²¢·µ»ØµÀÒåÍ¼µÄ¼«Ğ¡mÈı½Ç»¯Í¼ÖĞÍÅµÄ¸öÊı
+	 void Constructtree();        //æ„å»ºé“ä¹‰å›¾çš„æå°mä¸‰è§’åŒ–å›¾ä¸­å›¢çš„junction tree
+	 int Mverpos();               //è®°å½•ä¸‹ç‚¹ä¸å›¢çš„ä½ç½®çš„å…³ç³»,å¹¶è¿”å›é“ä¹‰å›¾çš„æå°mä¸‰è§’åŒ–å›¾ä¸­å›¢çš„ä¸ªæ•°
 
 	 ~OperonG(){cout<<" the destructor of OperonG: "<<endl;};
 protected:
-	 vector<int> sweight;           //ĞÇÍ¼ÖĞ¶¥µãµÄµ±Ç°È¨ÖØ
-	 vector<int> stweight;          //ĞÇÍ¼ÖĞ¶¥µãµÄÁÙÊ±È¨ÖØ
-	 vector<int> slabel;            //ĞÇÍ¼ÖĞ¶¥µãÊÇ(1)·ñ(0)ÒÑ¾­±»±àºÅ
-	 vector<int> snumbering;        //ĞÇÍ¼ÖĞ¶¥µãµÄ±àºÅ£¬snumbering[k]±íÊ¾¶¥µãk+1µÄ±àºÅ
-	 vector<int> svisit;            //ĞÇÍ¼ÖĞ¶¥µãÊÇ(1)·ñ(0)±»·ÃÎÊ¹ı
-	 vector<vector<int> > striadj;  //striadj[k]±íÊ¾ÔÚĞÇÍ¼µÄ¼«Ğ¡Èı½Ç»¯Í¼ÖĞµãk+1¼°k+1µÄÏàÁÚµã¼¯
+	 vector<int> sweight;           //æ˜Ÿå›¾ä¸­é¡¶ç‚¹çš„å½“å‰æƒé‡
+	 vector<int> stweight;          //æ˜Ÿå›¾ä¸­é¡¶ç‚¹çš„ä¸´æ—¶æƒé‡
+	 vector<int> slabel;            //æ˜Ÿå›¾ä¸­é¡¶ç‚¹æ˜¯(1)å¦(0)å·²ç»è¢«ç¼–å·
+	 vector<int> snumbering;        //æ˜Ÿå›¾ä¸­é¡¶ç‚¹çš„ç¼–å·ï¼Œsnumbering[k]è¡¨ç¤ºé¡¶ç‚¹k+1çš„ç¼–å·
+	 vector<int> svisit;            //æ˜Ÿå›¾ä¸­é¡¶ç‚¹æ˜¯(1)å¦(0)è¢«è®¿é—®è¿‡
+	 vector<vector<int> > striadj;  //striadj[k]è¡¨ç¤ºåœ¨æ˜Ÿå›¾çš„æå°ä¸‰è§’åŒ–å›¾ä¸­ç‚¹k+1åŠk+1çš„ç›¸é‚»ç‚¹é›†
 
-     vector<vector<int> > mtriadj;  //mtriadj[k]±íÊ¾ÔÚµÀÒåÍ¼µÄ¼«Ğ¡MÈı½Ç»¯Í¼ÖĞµãk+1¼°k+1µÄÏàÁÚµã¼¯
-	 vector<vector<int> > mmadj;    //mmadj[k]±íÊ¾µÀÒåÍ¼µÄ¼«Ğ¡mÈı½Ç»¯Í¼ÖĞµãk+1¼°k+1µÄµ¥µ÷ÁÚ¼¯
-	 vector<int> mnumbering;        //mnumbering[k]±íÊ¾µãk+1µÄ±àºÅ
-	 deque<int> morderver;          //°´Ë³Ğò±àºÅµÄ¶¥µãÁĞ, morderver[k]±íÊ¾±àºÅÎªk+1µÄµã
-	 vector<int> mlabel;            //mlabel[k]±íÊ¾¶¥µãk+1ÊÇ(1)·ñ(0)ÒÑ¾­±»±àºÅ
-	 vector<int> mweight;           //µÀÒåÍ¼ÖĞ¶¥µãµÄµ±Ç°È¨ÖØ
+     vector<vector<int> > mtriadj;  //mtriadj[k]è¡¨ç¤ºåœ¨é“ä¹‰å›¾çš„æå°Mä¸‰è§’åŒ–å›¾ä¸­ç‚¹k+1åŠk+1çš„ç›¸é‚»ç‚¹é›†
+	 vector<vector<int> > mmadj;    //mmadj[k]è¡¨ç¤ºé“ä¹‰å›¾çš„æå°mä¸‰è§’åŒ–å›¾ä¸­ç‚¹k+1åŠk+1çš„å•è°ƒé‚»é›†
+	 vector<int> mnumbering;        //mnumbering[k]è¡¨ç¤ºç‚¹k+1çš„ç¼–å·
+	 deque<int> morderver;          //æŒ‰é¡ºåºç¼–å·çš„é¡¶ç‚¹åˆ—, morderver[k]è¡¨ç¤ºç¼–å·ä¸ºk+1çš„ç‚¹
+	 vector<int> mlabel;            //mlabel[k]è¡¨ç¤ºé¡¶ç‚¹k+1æ˜¯(1)å¦(0)å·²ç»è¢«ç¼–å·
+	 vector<int> mweight;           //é“ä¹‰å›¾ä¸­é¡¶ç‚¹çš„å½“å‰æƒé‡
 
 
-	 deque<int> msignver;            //msignver[k]±íÊ¾Ò»¸öµã£¬Õâ¸öµã±êÊ¶ÁËÅÅºÅÎªk+1µÄÍÅ£¬¼´ËüµÄµ¥µ÷ÁÚ¼¯ÊÇ·Ö½â×Ó
-	 deque<int> mcliquever;          //mcliquever[k]±íÊ¾Ò»¸öµã£¬Õâ¸öµã¼°Æäµ¥µ÷ÁÚ¼¯ĞÎ³ÉÅÅºÅÎªk+1µÄÍÅ
-     vector<vector<int> > cliques;   //ÍÅµÄÁĞ±í,cliques[k]±íÊ¾ÅÅºÅÎªk+1µÄÍÅ
+	 deque<int> msignver;            //msignver[k]è¡¨ç¤ºä¸€ä¸ªç‚¹ï¼Œè¿™ä¸ªç‚¹æ ‡è¯†äº†æ’å·ä¸ºk+1çš„å›¢ï¼Œå³å®ƒçš„å•è°ƒé‚»é›†æ˜¯åˆ†è§£å­
+	 deque<int> mcliquever;          //mcliquever[k]è¡¨ç¤ºä¸€ä¸ªç‚¹ï¼Œè¿™ä¸ªç‚¹åŠå…¶å•è°ƒé‚»é›†å½¢æˆæ’å·ä¸ºk+1çš„å›¢
+     vector<vector<int> > cliques;   //å›¢çš„åˆ—è¡¨,cliques[k]è¡¨ç¤ºæ’å·ä¸ºk+1çš„å›¢
 
-	 vector<int> mverpos;            //±íÊ¾Ê¹ÓÃËã·¨SMCSºóÔÚD-numberingÏÂ¸÷¸öµã±»·ÖÅä¸øµÄÄÇ¸öÎ¨Ò»µÄÍÅµÄÅÅºÅ£¬mverpos[k]±íÊ¾µãk+1ËùÔÚÍÅµÄÅÅºÅ
-	 vector<int> cliquefa;           //cliquefa[k]±íÊ¾Ò»¸öÅÅºÅ£¬ËüÊÇÍÅÊ÷ÖĞÅÅºÅÎªk+1µÄÍÅµÄ¸¸ÍÅµÄÅÅºÅ
-	 vector<vector<int> > adjcliques;//adjcliques[k]±íÊ¾Ò»¸öÅÅºÅ¼¯£¬ËüÊÇÍÅÊ÷ÖĞÓëÅÅºÅÎªk+1ÏàÁÚµÄËùÓĞÍÅµÄÅÅºÅ
-	 int cliquenum;                  //ÍÅµÄ¸öÊı
+	 vector<int> mverpos;            //è¡¨ç¤ºä½¿ç”¨ç®—æ³•SMCSååœ¨D-numberingä¸‹å„ä¸ªç‚¹è¢«åˆ†é…ç»™çš„é‚£ä¸ªå”¯ä¸€çš„å›¢çš„æ’å·ï¼Œmverpos[k]è¡¨ç¤ºç‚¹k+1æ‰€åœ¨å›¢çš„æ’å·
+	 vector<int> cliquefa;           //cliquefa[k]è¡¨ç¤ºä¸€ä¸ªæ’å·ï¼Œå®ƒæ˜¯å›¢æ ‘ä¸­æ’å·ä¸ºk+1çš„å›¢çš„çˆ¶å›¢çš„æ’å·
+	 vector<vector<int> > adjcliques;//adjcliques[k]è¡¨ç¤ºä¸€ä¸ªæ’å·é›†ï¼Œå®ƒæ˜¯å›¢æ ‘ä¸­ä¸æ’å·ä¸ºk+1ç›¸é‚»çš„æ‰€æœ‰å›¢çš„æ’å·
+	 int cliquenum;                  //å›¢çš„ä¸ªæ•°
 };
 
 void OperonG::inOperonG(){
@@ -402,37 +402,37 @@ void OperonG::inOperonG(){
 
 class Dismes{
 public:
-	vector<int> dver;            //ÀëÉ¢±äÁ¿µÄ¼Ò×å£¬ÓĞĞ©±äÁ¿¿ÉÄÜÊÇÖ¤¾İ±äÁ¿,½øÈëComposterior()ºódver½ö½ö±íÊ¾Ò»¸öÀëÉ¢±äÁ¿¼¯
-	vector<vector<int> > dversta;//dversta[k]±íÊ¾ÀëÉ¢±äÁ¿¼¯dverµÚk+1¸öÀëÉ¢×´Ì¬,ÊÇÈ¡¶¨dverstaÖĞÖ¤¾İ±äÁ¿×´Ì¬ÒÔºóµÄ×´Ì¬¿Õ¼ä
-	vector<double> dverp;        //dverp[k]±íÊ¾º¯ÊıÔÚµÚk+1¸öÀëÉ¢×´Ì¬ÏÂµÄÈ¡Öµ,½øÈëComposterior()ºódverp½ö½ö±íÊ¾Ò»¸öÊµÊı¼¯
+	vector<int> dver;            //ç¦»æ•£å˜é‡çš„å®¶æ—ï¼Œæœ‰äº›å˜é‡å¯èƒ½æ˜¯è¯æ®å˜é‡,è¿›å…¥Composterior()ådverä»…ä»…è¡¨ç¤ºä¸€ä¸ªç¦»æ•£å˜é‡é›†
+	vector<vector<int> > dversta;//dversta[k]è¡¨ç¤ºç¦»æ•£å˜é‡é›†dverç¬¬k+1ä¸ªç¦»æ•£çŠ¶æ€,æ˜¯å–å®šdverstaä¸­è¯æ®å˜é‡çŠ¶æ€ä»¥åçš„çŠ¶æ€ç©ºé—´
+	vector<double> dverp;        //dverp[k]è¡¨ç¤ºå‡½æ•°åœ¨ç¬¬k+1ä¸ªç¦»æ•£çŠ¶æ€ä¸‹çš„å–å€¼,è¿›å…¥Composterior()ådverpä»…ä»…è¡¨ç¤ºä¸€ä¸ªå®æ•°é›†
 };
 
 class Conmes{
 public:
-	vector<int> cverFa;              //Á¬Ğø±äÁ¿µÄ¼Ò×å
-    vector<vector<int> > cverFasta;  //Á¬Ğø±äÁ¿µÄ¸¸¼¯ÖĞÀëÉ¢±äÁ¿µÄ×´Ì¬ÁĞ±í,ÊÇÈ¡¶¨ÀëÉ¢Ö¤¾İ±äÁ¿×´Ì¬ÒÔºóµÄ×´Ì¬ÁĞ±í
-	vector<vector<double> > cverFaf; //¶ÔÓ¦ÀëÉ¢×´Ì¬ÁĞ±íµÄÌõ¼ş·Ö²¼ÖĞ¾ùÖµÏµÊı¼°·½²îÁĞ±í
+	vector<int> cverFa;              //è¿ç»­å˜é‡çš„å®¶æ—
+    vector<vector<int> > cverFasta;  //è¿ç»­å˜é‡çš„çˆ¶é›†ä¸­ç¦»æ•£å˜é‡çš„çŠ¶æ€åˆ—è¡¨,æ˜¯å–å®šç¦»æ•£è¯æ®å˜é‡çŠ¶æ€ä»¥åçš„çŠ¶æ€åˆ—è¡¨
+	vector<vector<double> > cverFaf; //å¯¹åº”ç¦»æ•£çŠ¶æ€åˆ—è¡¨çš„æ¡ä»¶åˆ†å¸ƒä¸­å‡å€¼ç³»æ•°åŠæ–¹å·®åˆ—è¡¨
 };
 
 class Message{
 public:
-	vector<Conmes> cmes; //ÍÅÖ®¼ä´«µİµÄÁ¬Ğø±äÁ¿µÄĞÅÏ¢,¼ÇÂ¼µÄÊÇÌõ¼şÃÜ¶Èº¯ÊıĞÅÏ¢£¬Ã¿¸öÌõ¼şÃÜ¶Èº¯Êı¶¼ÊÇÒ»¸öĞÅÏ¢
-    vector<Dismes> dmes; //ÍÅÖ®¼ä´«µİµÄÀëÉ¢±äÁ¿µÄĞÅÏ¢£¬¼ÇÂ¼µÄÊÇÌõ¼ş¸ÅÂÊº¯ÊıĞÅÏ¢£¬Ã¿¸öÌõ¼ş¸ÅÂÊº¯Êı¶¼ÊÇÒ»¸öĞÅÏ¢
+	vector<Conmes> cmes; //å›¢ä¹‹é—´ä¼ é€’çš„è¿ç»­å˜é‡çš„ä¿¡æ¯,è®°å½•çš„æ˜¯æ¡ä»¶å¯†åº¦å‡½æ•°ä¿¡æ¯ï¼Œæ¯ä¸ªæ¡ä»¶å¯†åº¦å‡½æ•°éƒ½æ˜¯ä¸€ä¸ªä¿¡æ¯
+    vector<Dismes> dmes; //å›¢ä¹‹é—´ä¼ é€’çš„ç¦»æ•£å˜é‡çš„ä¿¡æ¯ï¼Œè®°å½•çš„æ˜¯æ¡ä»¶æ¦‚ç‡å‡½æ•°ä¿¡æ¯ï¼Œæ¯ä¸ªæ¡ä»¶æ¦‚ç‡å‡½æ•°éƒ½æ˜¯ä¸€ä¸ªä¿¡æ¯
 };
 
 
 class Dispost{
 public:
-	int disver;              //¶¥µã
-	vector<int> state;    //state[k]±íÊ¾¶¥µãµÄµÚk+1¸ö×´Ì¬
-	vector<double> dispr;    //pr[k]±íÊ¾¶¥µãÔÚµÚk+1¸ö×´Ì¬ÏÂµÄºóÑé¸ÅÂÊ
+	int disver;              //é¡¶ç‚¹
+	vector<int> state;    //state[k]è¡¨ç¤ºé¡¶ç‚¹çš„ç¬¬k+1ä¸ªçŠ¶æ€
+	vector<double> dispr;    //pr[k]è¡¨ç¤ºé¡¶ç‚¹åœ¨ç¬¬k+1ä¸ªçŠ¶æ€ä¸‹çš„åéªŒæ¦‚ç‡
 };
 
 class Conpost{
 public:
-    int conver;                     //Á¬Ğø¶¥µã
-	vector<double> stap;            //Õâ¸öµãµÄºóÑé·Ö²¼ÊÇÈô¸É¸ö×´Ì¬ÏÂµÄ»ìºÏ·Ö²¼£¬stap[k]±íÊ¾¶¥µãÔÚµÚk+1¸ö×´Ì¬ÏÂµÄ¸ÅÂÊ
-    vector<vector<double> > converf;  //conf[k]±íÊ¾¶¥µãÔÚµÚk+1¸ö×´Ì¬ÏÂµÄºóÑé¾ùÖµºÍ·½²î¡£
+    int conver;                     //è¿ç»­é¡¶ç‚¹
+	vector<double> stap;            //è¿™ä¸ªç‚¹çš„åéªŒåˆ†å¸ƒæ˜¯è‹¥å¹²ä¸ªçŠ¶æ€ä¸‹çš„æ··åˆåˆ†å¸ƒï¼Œstap[k]è¡¨ç¤ºé¡¶ç‚¹åœ¨ç¬¬k+1ä¸ªçŠ¶æ€ä¸‹çš„æ¦‚ç‡
+    vector<vector<double> > converf;  //conf[k]è¡¨ç¤ºé¡¶ç‚¹åœ¨ç¬¬k+1ä¸ªçŠ¶æ€ä¸‹çš„åéªŒå‡å€¼å’Œæ–¹å·®ã€‚
 };
 
 
@@ -441,147 +441,147 @@ public:
     Propagation(){cout<<"the constructor of Propagation()"<<endl;};
 	void inPropagation();
 
-    void Messagecol();                             //ĞÅÏ¢ÊÕ¼¯º¯Êı
-	Message Cmess(int k);                          //·µ»ØÖµÊÇ£ºÊÕ¼¯ĞÅÏ¢Ê±£¬ÍÅk´«Ïò¸¸ÍÅµÄĞÅÏ¢potential
-	Message Proj(Message & mes, int k, int l);     //½«Ò»¸öÍÅkµÄĞÅÏ¢Í¶Ó°µ½ÍÅlÉÏ£¬·µ»ØÖµÒ²ÊÇĞÅÏ¢potential,mes±íÊ¾ÍÅkÉÏµÄµ±Ç°ĞÅÏ¢potential
-	vector<int> Sep(int k,int l);                  //·µ»ØÖµÊÇ£ºÍÅkºÍÍÅlµÄ·ÖÀë×Ó
-    Message Projmes(Message & mes, int k, int l); //·µ»ØÖµÊÇ£º´«µİµÄ²¿·ÖĞÅÏ¢,ÔÚÕâ¸öº¯ÊıÖĞÊ¹ÓÃexchangeÏûÈ¥±äÁ¿
-//    Message Elimbarren(vector<int> & RN, Message & mes); //ÏûÈ¥·ÇÖ¤¾İ±äÁ¿¼¯RNÖĞµÄbarren±äÁ¿£¬²¢ÔÚ½á¹¹ÖĞ¹ÂÁ¢ÕâĞ©±äÁ¿,Ê¹ÓÃÕâ¸öº¯ÊıÇ°ĞèÒªÓÃmes½«½á¹¹ÖØÖÃ
+    void Messagecol();                             //ä¿¡æ¯æ”¶é›†å‡½æ•°
+	Message Cmess(int k);                          //è¿”å›å€¼æ˜¯ï¼šæ”¶é›†ä¿¡æ¯æ—¶ï¼Œå›¢kä¼ å‘çˆ¶å›¢çš„ä¿¡æ¯potential
+	Message Proj(Message & mes, int k, int l);     //å°†ä¸€ä¸ªå›¢kçš„ä¿¡æ¯æŠ•å½±åˆ°å›¢lä¸Šï¼Œè¿”å›å€¼ä¹Ÿæ˜¯ä¿¡æ¯potential,mesè¡¨ç¤ºå›¢kä¸Šçš„å½“å‰ä¿¡æ¯potential
+	vector<int> Sep(int k,int l);                  //è¿”å›å€¼æ˜¯ï¼šå›¢kå’Œå›¢lçš„åˆ†ç¦»å­
+    Message Projmes(Message & mes, int k, int l); //è¿”å›å€¼æ˜¯ï¼šä¼ é€’çš„éƒ¨åˆ†ä¿¡æ¯,åœ¨è¿™ä¸ªå‡½æ•°ä¸­ä½¿ç”¨exchangeæ¶ˆå»å˜é‡
+//    Message Elimbarren(vector<int> & RN, Message & mes); //æ¶ˆå»éè¯æ®å˜é‡é›†RNä¸­çš„barrenå˜é‡ï¼Œå¹¶åœ¨ç»“æ„ä¸­å­¤ç«‹è¿™äº›å˜é‡,ä½¿ç”¨è¿™ä¸ªå‡½æ•°å‰éœ€è¦ç”¨meså°†ç»“æ„é‡ç½®
     Message Elimbarren(vector<int> & TAR, vector<int> & RN, Message & mes);
 
-    //·µ»ØÖµÊÇ£º´Óµã¼¯S³ö·¢ÄÜ¹»dreachµÄ¶¥µã¼¯(²»°üº¬Ö¤¾İ±äÁ¿)£¬vecÊÇ¸ø¶¨µÄ¾Ö²¿Ö¤¾İ±äÁ¿¼¯¡£
+    //è¿”å›å€¼æ˜¯ï¼šä»ç‚¹é›†Så‡ºå‘èƒ½å¤Ÿdreachçš„é¡¶ç‚¹é›†(ä¸åŒ…å«è¯æ®å˜é‡)ï¼Œvecæ˜¯ç»™å®šçš„å±€éƒ¨è¯æ®å˜é‡é›†ã€‚
     vector<int> Dreach(vector<int> & S, vector<int> & vec);
-    //vecÊÇ¸ø¶¨µÄ¾Ö²¿Ö¤¾İ±äÁ¿¼¯£¬µ±lÊÇÒ»¸öÅö×²µã£¬ÊÇ·ñ½ÓÊÜl½øÒ»²½¿¼ÂÇdÁ¬Í¨£¬·µ»ØÖµÊÇ1±íÊ¾½ÓÊÜ£¬·µ»ØÖµÊÇ0±íËÆºõ²»½ÓÊÜ¡£
+    //vecæ˜¯ç»™å®šçš„å±€éƒ¨è¯æ®å˜é‡é›†ï¼Œå½“læ˜¯ä¸€ä¸ªç¢°æ’ç‚¹ï¼Œæ˜¯å¦æ¥å—lè¿›ä¸€æ­¥è€ƒè™‘dè¿é€šï¼Œè¿”å›å€¼æ˜¯1è¡¨ç¤ºæ¥å—ï¼Œè¿”å›å€¼æ˜¯0è¡¨ä¼¼ä¹ä¸æ¥å—ã€‚
     int Acceptl(int l, vector<int> & vec);
-    //·µ»ØlµÄºó´úµãÖĞÊÇ·ñÓëvecÖĞµãÏà½»£¬1±íÊ¾Ïà½»£¬0±íÊ¾²»Ïà½»¡£
+    //è¿”å›lçš„åä»£ç‚¹ä¸­æ˜¯å¦ä¸vecä¸­ç‚¹ç›¸äº¤ï¼Œ1è¡¨ç¤ºç›¸äº¤ï¼Œ0è¡¨ç¤ºä¸ç›¸äº¤ã€‚
     vector<int> Des(int k);
-    //vecÊÇ¸ø¶¨µÄ¾Ö²¿Ö¤¾İ±äÁ¿¼¯,ÓÉ×Ó½áµãµ½¸¸½áµãµÄ±ßkl±»ÔÊĞí¼ÇÂ¼ºó£¬½øÒ»²½½øĞĞÅĞ¶ÏlºÍÆä¸¸»ò×Ó½áµãĞÎ³ÉµÄ±ßÊÇ·ñÔÊĞí±»¼ÇÂ¼¡£
+    //vecæ˜¯ç»™å®šçš„å±€éƒ¨è¯æ®å˜é‡é›†,ç”±å­ç»“ç‚¹åˆ°çˆ¶ç»“ç‚¹çš„è¾¹klè¢«å…è®¸è®°å½•åï¼Œè¿›ä¸€æ­¥è¿›è¡Œåˆ¤æ–­lå’Œå…¶çˆ¶æˆ–å­ç»“ç‚¹å½¢æˆçš„è¾¹æ˜¯å¦å…è®¸è¢«è®°å½•ã€‚
     void Dreachf(int k, int l, vector<int> & vec);
-    //vecÊÇ¸ø¶¨µÄ¾Ö²¿Ö¤¾İ±äÁ¿¼¯,ÓÉ¸¸½áµãµ½×Ó½áµãµÄ±ßkl±»ÔÊĞí¼ÇÂ¼ºó£¬½øÒ»²½½øĞĞÅĞ¶ÏlºÍÆä¸¸×Ó½áµãĞÎ³ÉµÄ±ßÊÇ·ñÔÊĞí±»¼ÇÂ¼¡£
+    //vecæ˜¯ç»™å®šçš„å±€éƒ¨è¯æ®å˜é‡é›†,ç”±çˆ¶ç»“ç‚¹åˆ°å­ç»“ç‚¹çš„è¾¹klè¢«å…è®¸è®°å½•åï¼Œè¿›ä¸€æ­¥è¿›è¡Œåˆ¤æ–­lå’Œå…¶çˆ¶å­ç»“ç‚¹å½¢æˆçš„è¾¹æ˜¯å¦å…è®¸è¢«è®°å½•ã€‚
     void Dreachc(int k, int l, vector<int> & vec);
-    //·µ»Ød·ÖÀëºóÓÃÀ´exchangeµÄĞÅÏ¢,dsepÊÇ±»d·ÖÀëµôµÄ²¿·Ö£¬´ÓmesÖĞÈ¥µôËùÓĞÓëdespÓĞ¹ØµÄĞÅÏ¢£¬
-    Message Exemess(vector<int> & rels, Message & mes); //¼´µ±mesÖĞÄ³¸öpotentialÉæ¼°µÄ±äÁ¿¼¯ÓërelsÏà½»·Ç¿Õ£¬Ôò±£ÁôÕâ¸öpotential
+    //è¿”å›dåˆ†ç¦»åç”¨æ¥exchangeçš„ä¿¡æ¯,dsepæ˜¯è¢«dåˆ†ç¦»æ‰çš„éƒ¨åˆ†ï¼Œä»mesä¸­å»æ‰æ‰€æœ‰ä¸despæœ‰å…³çš„ä¿¡æ¯ï¼Œ
+    Message Exemess(vector<int> & rels, Message & mes); //å³å½“mesä¸­æŸä¸ªpotentialæ¶‰åŠçš„å˜é‡é›†ä¸relsç›¸äº¤éç©ºï¼Œåˆ™ä¿ç•™è¿™ä¸ªpotential
 
 
-	int Pos(int k, vector<int> & vec);           //·µ»ØÖµÊÇ£º±äÁ¿kÔÚvecÖĞµÄÎ»ÖÃ
+	int Pos(int k, vector<int> & vec);           //è¿”å›å€¼æ˜¯ï¼šå˜é‡kåœ¨vecä¸­çš„ä½ç½®
 
 
 	vector<int> Remainpos(int k, vector<vector<int> > & vecs);
-	//·µ»Ø±äÁ¿kµÄ¼Ò×åÖĞÀëÉ¢±äÁ¿¼¯ÔÚ×´Ì¬vecsÏÂ£¬¸ø¶¨ÀëÉ¢Ö¤¾İÈ¡ÖµÖ®ºó£¬ÔÚÀëÉ¢Ö¤¾İ±äÁ¿´¦Ò»ÖÂµÄ×´Ì¬ÔÚvecsÖĞµÄÎ»ÖÃ
+	//è¿”å›å˜é‡kçš„å®¶æ—ä¸­ç¦»æ•£å˜é‡é›†åœ¨çŠ¶æ€vecsä¸‹ï¼Œç»™å®šç¦»æ•£è¯æ®å–å€¼ä¹‹åï¼Œåœ¨ç¦»æ•£è¯æ®å˜é‡å¤„ä¸€è‡´çš„çŠ¶æ€åœ¨vecsä¸­çš„ä½ç½®
 	vector<vector<int> > Remainsta(int k);
-	//·µ»ØÒÔ±äÁ¿kÎªÊ×µãµÄÌõ¼şÃÜ¶È£¬ÔÚ¸ø¶¨ÀëÉ¢Ö¤¾İ±äÁ¿È¡Öµºó£¬Éæ¼°µÄÀëÉ¢×´Ì¬
+	//è¿”å›ä»¥å˜é‡kä¸ºé¦–ç‚¹çš„æ¡ä»¶å¯†åº¦ï¼Œåœ¨ç»™å®šç¦»æ•£è¯æ®å˜é‡å–å€¼åï¼Œæ¶‰åŠçš„ç¦»æ•£çŠ¶æ€
 	vector<vector<double> > Remainpr(int k);
-	// ·µ»ØÒÔ±äÁ¿kÎªÊ×µãµÄÌõ¼şÃÜ¶È£¬ÔÚ¸ø¶¨ÀëÉ¢Ö¤¾İ±äÁ¿È¡Öµºó£¬Éæ¼°µÄÀëÉ¢×´Ì¬¶ÔÓ¦µÃÃÜ¶Èº¯Êı
+	// è¿”å›ä»¥å˜é‡kä¸ºé¦–ç‚¹çš„æ¡ä»¶å¯†åº¦ï¼Œåœ¨ç»™å®šç¦»æ•£è¯æ®å˜é‡å–å€¼åï¼Œæ¶‰åŠçš„ç¦»æ•£çŠ¶æ€å¯¹åº”å¾—å¯†åº¦å‡½æ•°
 
 
-	vector<vector<int> > Tstate(int k);   //·µ»ØµãkµÄ¶¯Ì¬ÀëÉ¢×´Ì¬ÁĞ±í£¨¿¼ÂÇ¸¸¼¯ÖĞµÄÀëÉ¢Ö¤¾İ±äÁ¿ÒÑ¾­¸ø¶¨£©
-	vector<vector<double> > Tprob(int k); //·µ»ØµãkµÄ¶¯Ì¬Ìõ¼ş·Ö²¼ÁĞ±í£¨¿¼ÂÇ¸¸¼¯ÖĞµÄÀëÉ¢Ö¤¾İ±äÁ¿ÒÑ¾­¸ø¶¨£©
-    int Tpos(int k,int l);  //Á¬Ğø±äÁ¿k,l,kÊÇlµÄ¸¸µã»òl×ÔÉí£¬·µ»ØkÔÚtverconFa[l-1]ÖĞµÄÎ»ÖÃ
-	int Posmess(int k, Message & mes); //ÈôkÊÇÁ¬Ğø±äÁ¿£¬·µ»ØÁ¬Ğø±äÁ¿kÔÚĞÅÏ¢mesÖĞÁ¬ĞøĞÅÏ¢mes.cmesÖĞµÄÎ»ÖÃ
-	//ÈôkÊÇÀëÉ¢±äÁ¿£¬·µ»ØÀëÉ¢±äÁ¿ÔÚÀëÉ¢ĞÅÏ¢mes.dmesÖĞµÄÎ»ÖÃ
+	vector<vector<int> > Tstate(int k);   //è¿”å›ç‚¹kçš„åŠ¨æ€ç¦»æ•£çŠ¶æ€åˆ—è¡¨ï¼ˆè€ƒè™‘çˆ¶é›†ä¸­çš„ç¦»æ•£è¯æ®å˜é‡å·²ç»ç»™å®šï¼‰
+	vector<vector<double> > Tprob(int k); //è¿”å›ç‚¹kçš„åŠ¨æ€æ¡ä»¶åˆ†å¸ƒåˆ—è¡¨ï¼ˆè€ƒè™‘çˆ¶é›†ä¸­çš„ç¦»æ•£è¯æ®å˜é‡å·²ç»ç»™å®šï¼‰
+    int Tpos(int k,int l);  //è¿ç»­å˜é‡k,l,kæ˜¯lçš„çˆ¶ç‚¹æˆ–lè‡ªèº«ï¼Œè¿”å›kåœ¨tverconFa[l-1]ä¸­çš„ä½ç½®
+	int Posmess(int k, Message & mes); //è‹¥kæ˜¯è¿ç»­å˜é‡ï¼Œè¿”å›è¿ç»­å˜é‡kåœ¨ä¿¡æ¯mesä¸­è¿ç»­ä¿¡æ¯mes.cmesä¸­çš„ä½ç½®
+	//è‹¥kæ˜¯ç¦»æ•£å˜é‡ï¼Œè¿”å›ç¦»æ•£å˜é‡åœ¨ç¦»æ•£ä¿¡æ¯mes.dmesä¸­çš„ä½ç½®
 
 
-	vector<Conmes> Exchange(int k, Conmes & conk, int l, Conmes & conl);  //·µ»ØexchangeºóµÄµãkºÍµãlµÄÁ¬ĞøĞÅÏ¢
-	//ÔÚº¯Êı¼°Æä×´Ì¬ÖĞ£¬¶ÔÁ¬Ğø±äÁ¿k¼°ÆäÔÚtverChiÖĞÍØÆËĞò×îĞ¡µÄÁ¬Ğø±äÁ¿l½øĞĞexchange
-    vector<Dismes> Exchange(int k, Dismes & disk, int l, Dismes & disl);  //·µ»ØexchangeºóµÄµãkºÍµãlµÄÀëÉ¢ĞÅÏ¢
-    //ÔÚº¯Êı¼°Æä×´Ì¬ÖĞ£¬¶ÔÀëÉ¢±äÁ¿k¼°ÆäÔÚtverChiÖĞÍØÆËĞò×îĞ¡µÄÀëÉ¢±äÁ¿l½øĞĞexchange
+	vector<Conmes> Exchange(int k, Conmes & conk, int l, Conmes & conl);  //è¿”å›exchangeåçš„ç‚¹kå’Œç‚¹lçš„è¿ç»­ä¿¡æ¯
+	//åœ¨å‡½æ•°åŠå…¶çŠ¶æ€ä¸­ï¼Œå¯¹è¿ç»­å˜é‡kåŠå…¶åœ¨tverChiä¸­æ‹“æ‰‘åºæœ€å°çš„è¿ç»­å˜é‡lè¿›è¡Œexchange
+    vector<Dismes> Exchange(int k, Dismes & disk, int l, Dismes & disl);  //è¿”å›exchangeåçš„ç‚¹kå’Œç‚¹lçš„ç¦»æ•£ä¿¡æ¯
+    //åœ¨å‡½æ•°åŠå…¶çŠ¶æ€ä¸­ï¼Œå¯¹ç¦»æ•£å˜é‡kåŠå…¶åœ¨tverChiä¸­æ‹“æ‰‘åºæœ€å°çš„ç¦»æ•£å˜é‡lè¿›è¡Œexchange
     vector<int> Commonpos(vector<int> & vec, vector<int> & vec_val,
-                          vector<int> & ved, vector<vector<int> > & vedsta); //ÒÔÀëÉ¢±äÁ¿¼¯vedÎªÖ÷£¬
-    //·µ»Ø±äÁ¿¼¯vecÔÚÈ¡Öµvec_valºó£¬vecÓëvedµÄ½»¼¯ÉÏ¹²Í¬µÄ×´Ì¬ÔÚvedµÄ×´Ì¬ÖĞµÄÎ»ÖÃ£¬ÆäÖĞvecstaÓëvedsta
-    //ÎªvecºÍved¶ÔÓ¦µÄ×´Ì¬¡£
+                          vector<int> & ved, vector<vector<int> > & vedsta); //ä»¥ç¦»æ•£å˜é‡é›†vedä¸ºä¸»ï¼Œ
+    //è¿”å›å˜é‡é›†vecåœ¨å–å€¼vec_valåï¼Œvecä¸vedçš„äº¤é›†ä¸Šå…±åŒçš„çŠ¶æ€åœ¨vedçš„çŠ¶æ€ä¸­çš„ä½ç½®ï¼Œå…¶ä¸­vecstaä¸vedsta
+    //ä¸ºvecå’Œvedå¯¹åº”çš„çŠ¶æ€ã€‚
     vector<int> Commpos(vector<int> & vec, vector<int> & vec_val,  vector<int> & ved);
 
- 	Message Exchange(int k, Message & mes);//ÔÚº¯ÊıÉÏ¶Ô±äÁ¿kÊ¹ÓÃexchangeÔËËã,²¢·µ»ØÔËËãºóµÄĞÅÏ¢,Ê¹ÓÃÕâ¸öº¯ÊıÇ°ĞèÒªÓÃmes½«½á¹¹ÖØÖÃ
-    vector<vector<int> > EDisstate(vector<int> & vec);//·µ»ØÀëÉ¢±äÁ¿¼¯vecÔÚÖ¤¾İ±äÁ¿È¡¶¨ºóµÄÀëÉ¢×´Ì¬ÁĞ±í
-    void Localstru(Message & mes);   //¾Ö²¿½á¹¹»¯º¯Êı£¬Í¨¹ıĞÅÏ¢mesÀ´¸ÄĞ´mesÉæ¼°µÄ±äÁ¿µÄ¾Ö²¿½á¹¹
-    int Domnum(int k);        //·µ»Ø£¬ÎªÁËexchangeµô±äÁ¿k£¬Éæ¼°µÄÀëÉ¢±äÁ¿µÄ¸öÊı£¬¼´kµÄÀëÉ¢¸¸µã£¬kµÄ×Ó½áµãµÄÀëÉ¢¸¸µã
+ 	Message Exchange(int k, Message & mes);//åœ¨å‡½æ•°ä¸Šå¯¹å˜é‡kä½¿ç”¨exchangeè¿ç®—,å¹¶è¿”å›è¿ç®—åçš„ä¿¡æ¯,ä½¿ç”¨è¿™ä¸ªå‡½æ•°å‰éœ€è¦ç”¨meså°†ç»“æ„é‡ç½®
+    vector<vector<int> > EDisstate(vector<int> & vec);//è¿”å›ç¦»æ•£å˜é‡é›†vecåœ¨è¯æ®å˜é‡å–å®šåçš„ç¦»æ•£çŠ¶æ€åˆ—è¡¨
+    void Localstru(Message & mes);   //å±€éƒ¨ç»“æ„åŒ–å‡½æ•°ï¼Œé€šè¿‡ä¿¡æ¯mesæ¥æ”¹å†™mesæ¶‰åŠçš„å˜é‡çš„å±€éƒ¨ç»“æ„
+    int Domnum(int k);        //è¿”å›ï¼Œä¸ºäº†exchangeæ‰å˜é‡kï¼Œæ¶‰åŠçš„ç¦»æ•£å˜é‡çš„ä¸ªæ•°ï¼Œå³kçš„ç¦»æ•£çˆ¶ç‚¹ï¼Œkçš„å­ç»“ç‚¹çš„ç¦»æ•£çˆ¶ç‚¹
 
 
-	void Messagedis();          //ĞÅÏ¢·Ö·¢º¯Êı
-	Message Dmess(int k);                     //·µ»ØÖµÊÇ£º·Ö·¢ĞÅÏ¢Ê±£¬ÍÅkµÄ¸¸ÍÅ´«ÏòÍÅkµÄĞÅÏ¢potential
-    vector<Dismes> Dgenbycv(vector<int> & vec);  //·µ»ØÖµÊÇ£ºÓÉÌõ¼şÃÜ¶È½öÊÇÀëÉ¢±äÁ¿º¯ÊıµÄÁ¬ĞøÊ×µã¼¯vec²úÉúµÄÀëÉ¢ĞÅÏ¢
-    //Õâ¸öÔÚ×îºóÉæ¼°¼ÆËãºóÑé¸ÅÂÊµÄÊ±ºò½«»áÓĞÓÃ
+	void Messagedis();          //ä¿¡æ¯åˆ†å‘å‡½æ•°
+	Message Dmess(int k);                     //è¿”å›å€¼æ˜¯ï¼šåˆ†å‘ä¿¡æ¯æ—¶ï¼Œå›¢kçš„çˆ¶å›¢ä¼ å‘å›¢kçš„ä¿¡æ¯potential
+    vector<Dismes> Dgenbycv(vector<int> & vec);  //è¿”å›å€¼æ˜¯ï¼šç”±æ¡ä»¶å¯†åº¦ä»…æ˜¯ç¦»æ•£å˜é‡å‡½æ•°çš„è¿ç»­é¦–ç‚¹é›†vecäº§ç”Ÿçš„ç¦»æ•£ä¿¡æ¯
+    //è¿™ä¸ªåœ¨æœ€åæ¶‰åŠè®¡ç®—åéªŒæ¦‚ç‡çš„æ—¶å€™å°†ä¼šæœ‰ç”¨
 
 
-    Conpost Comconp(int k, Message & mes);//¼ÆËãÁ¬ĞøµãkµÄºóÑé·Ö²¼
-    Dispost Comdisp(int k, Message & mes);//¼ÆËãÀëÉ¢µãkµÄºóÑé·Ö²¼
-	void Composterior();        //¼ÆËãÃ¿Ò»¸öµãµÄºóÑé·Ö²¼,´ËÊ±Ê¹ÓÃVEÓëVRÏûÔªÃ»ÓĞÇø±ğ£¬ÒòÎªVEÏûÔª¿ÉÄÜÎŞ·¨±ÜÃâ£¬ËùÒÔ£¬ÕâÀï¶ÔÀëÉ¢±äÁ¿½¨ÒéÊ¹ÓÃVEÏûÔª
-    double Multip(vector<int> & vec, vector<int> & vecs, vector<Dismes> & dmes); //·µ»ØÖµÊÇ£ºÔÚÉæ¼°¼ÓºÍµÄÀëÉ¢º¯ÊıĞÅÏ¢dmesÖĞ£¬
-    //¿¼ÂÇdmesÖĞËùÓĞµÄÀëÉ¢º¯Êı´øÓĞµÄÀëÉ¢±äÁ¿È«ÌåvecÔÚ¹Ì¶¨×´Ì¬vecsÏÂ£¬¶ÔÀëÉ¢º¯ÊıµÄÈ¡Öµ½øĞĞ³Ë»ı
+    Conpost Comconp(int k, Message & mes);//è®¡ç®—è¿ç»­ç‚¹kçš„åéªŒåˆ†å¸ƒ
+    Dispost Comdisp(int k, Message & mes);//è®¡ç®—ç¦»æ•£ç‚¹kçš„åéªŒåˆ†å¸ƒ
+	void Composterior();        //è®¡ç®—æ¯ä¸€ä¸ªç‚¹çš„åéªŒåˆ†å¸ƒ,æ­¤æ—¶ä½¿ç”¨VEä¸VRæ¶ˆå…ƒæ²¡æœ‰åŒºåˆ«ï¼Œå› ä¸ºVEæ¶ˆå…ƒå¯èƒ½æ— æ³•é¿å…ï¼Œæ‰€ä»¥ï¼Œè¿™é‡Œå¯¹ç¦»æ•£å˜é‡å»ºè®®ä½¿ç”¨VEæ¶ˆå…ƒ
+    double Multip(vector<int> & vec, vector<int> & vecs, vector<Dismes> & dmes); //è¿”å›å€¼æ˜¯ï¼šåœ¨æ¶‰åŠåŠ å’Œçš„ç¦»æ•£å‡½æ•°ä¿¡æ¯dmesä¸­ï¼Œ
+    //è€ƒè™‘dmesä¸­æ‰€æœ‰çš„ç¦»æ•£å‡½æ•°å¸¦æœ‰çš„ç¦»æ•£å˜é‡å…¨ä½“vecåœ¨å›ºå®šçŠ¶æ€vecsä¸‹ï¼Œå¯¹ç¦»æ•£å‡½æ•°çš„å–å€¼è¿›è¡Œä¹˜ç§¯
 
 
     double Multiplep(vector<int> inpos, vector<Dismes> & dmes);
     vector<int> Inpos(vector<vector<int> > & allsta, vector<Dismes> & dmes);
 
-    Message Elimdisone(int k, Message & mess); //·µ»ØÏû³ıÀëÉ¢±äÁ¿kºóÁôÏÂµÄĞÅÏ¢
-    vector<int> Allv(Message & mes);  //·µ»ØĞÅÏ¢mesÖĞÉæ¼°µÄËùÓĞµã¡£
-    vector<int> Setminus(vector<int> & allv, vector<int> & parv); //·µ»ØallvÈ¥µôparvºóµÄµã¼¯¡£
+    Message Elimdisone(int k, Message & mess); //è¿”å›æ¶ˆé™¤ç¦»æ•£å˜é‡kåç•™ä¸‹çš„ä¿¡æ¯
+    vector<int> Allv(Message & mes);  //è¿”å›ä¿¡æ¯mesä¸­æ¶‰åŠçš„æ‰€æœ‰ç‚¹ã€‚
+    vector<int> Setminus(vector<int> & allv, vector<int> & parv); //è¿”å›allvå»æ‰parvåçš„ç‚¹é›†ã€‚
 
-    vector<vector<int> > Disstru(vector<Dismes> & dmes); //·µ»ØdmesÖĞ·ÇÖ¤¾İÀëÉ¢±äÁ¿µÄÎŞÏò½á¹¹
-    vector<int> Elimordering(vector<int> & comdisv, vector<Dismes> & dmes);//comdisvÖĞµãÍêÈ«»¯£¬·µ»ØdmesÖĞµÄ±äÁ¿¼¯µÄÏûÔªĞò
-    int Maxpoint(vector<int> & comdisv, vector<int> & elimv);//·µ»ØelimvÖĞÈ¨ÖØ×î´óµÄµã£¬
-    //µ±ÓĞ¶à¸öÈ¨ÖØ×î´óµÄµãÇÒcomdisvÖĞÓĞµãÈ¨ÖØ×î´óÊ±ÓÅÏÈ·µ»ØcomdisvÖĞµã,comdisvÊÇelimvµÄ×Ó¼¯
-    int Changew(int k, int l, vector<int> & elimv);   //¿¼ÂÇÊÇ·ñ¸üĞÂÈ¨ÖØ
+    vector<vector<int> > Disstru(vector<Dismes> & dmes); //è¿”å›dmesä¸­éè¯æ®ç¦»æ•£å˜é‡çš„æ— å‘ç»“æ„
+    vector<int> Elimordering(vector<int> & comdisv, vector<Dismes> & dmes);//comdisvä¸­ç‚¹å®Œå…¨åŒ–ï¼Œè¿”å›dmesä¸­çš„å˜é‡é›†çš„æ¶ˆå…ƒåº
+    int Maxpoint(vector<int> & comdisv, vector<int> & elimv);//è¿”å›elimvä¸­æƒé‡æœ€å¤§çš„ç‚¹ï¼Œ
+    //å½“æœ‰å¤šä¸ªæƒé‡æœ€å¤§çš„ç‚¹ä¸”comdisvä¸­æœ‰ç‚¹æƒé‡æœ€å¤§æ—¶ä¼˜å…ˆè¿”å›comdisvä¸­ç‚¹,comdisvæ˜¯elimvçš„å­é›†
+    int Changew(int k, int l, vector<int> & elimv);   //è€ƒè™‘æ˜¯å¦æ›´æ–°æƒé‡
 
 
-	void Totalmess();   //¼ÆËã¸÷¸öÍÅÉÏµÄ×ÜĞÅÏ¢£¬°üº¬Ô­Ê¼ĞÅÏ¢£¬ÓÉ¸¸ÍÅ·Ö·¢¹ıÀ´µÄĞÅÏ¢£¬ÒÔ¼°ÓÉ×ÓÍÅ´«À´µÄĞÅÏ¢
-    void Output(vector<Dispost> & dis, vector<Conpost> & con);  //ÒÔÎÄ±¾ĞÎÊ½Êä³ö×îÖÕµÄ½á¹û
+	void Totalmess();   //è®¡ç®—å„ä¸ªå›¢ä¸Šçš„æ€»ä¿¡æ¯ï¼ŒåŒ…å«åŸå§‹ä¿¡æ¯ï¼Œç”±çˆ¶å›¢åˆ†å‘è¿‡æ¥çš„ä¿¡æ¯ï¼Œä»¥åŠç”±å­å›¢ä¼ æ¥çš„ä¿¡æ¯
+    void Output(vector<Dispost> & dis, vector<Conpost> & con);  //ä»¥æ–‡æœ¬å½¢å¼è¾“å‡ºæœ€ç»ˆçš„ç»“æœ
     void Outputstru(int Ver, double cpro, int evidnum, int net_id, std::mt19937& gen);
 	void OutputNet(int Ver, double cpro, int evidnum, int net_id, std::mt19937& gen);
 	void OutputData(int Ver, double cpro, int evidnum, int n_sample, int net_id, std::mt19937& gen);
 	~Propagation();
 private:
-	vector<Message> omess;   //omess[k]±íÊ¾ÍÅk+1ÉÏµÄÔ­Ê¼ĞÅÏ¢potential
-	vector<Message> smess1;  //smess1[k]±íÊ¾ÍÅk+1ÉÏ´«ÏòËüµÄ¸¸ÍÅµÄĞÅÏ¢potential,smess1[0]±íÊ¾ÍÅ1ÉÏµÄÔ­Ê¼ĞÅÏ¢potential
-	vector<Message> smess2;  //smess2[k]±íÊ¾ÓÉÍÅk+1µÄ¸¸ÍÅ´«ÏòÍÅk+1µÄĞÅÏ¢potential,smess2[0]±íÊ¾ÍÅ1ÉÏµÄÔ­Ê¼ĞÅÏ¢potential
-    vector<int> meslabel;    //meslabel[k]=0±íÊ¾ÍÅk+1»¹Ã»ÓĞ´ÓËüµÄ¸¸ÍÅ½ÓÊÜĞÅÏ¢£¬meslabel[k]=1±íÊ¾ÍÅk+1ÒÑ¾­´ÓËüµÄ¸¸ÍÅ½ÓÊÜĞÅÏ¢
-    vector<Message> totalmess; //totalmess[k]±íÊ¾ÍÅk+1ÉÏËùÓĞĞÅÏ¢£¬°üº¬Ô­Ê¼ĞÅÏ¢£¬´Ó¸¸ÍÅ´«À´µÄĞÅÏ¢ÒÔ¼°´Ó×ÓÍÅ´«À´µÄĞÅÏ¢
+	vector<Message> omess;   //omess[k]è¡¨ç¤ºå›¢k+1ä¸Šçš„åŸå§‹ä¿¡æ¯potential
+	vector<Message> smess1;  //smess1[k]è¡¨ç¤ºå›¢k+1ä¸Šä¼ å‘å®ƒçš„çˆ¶å›¢çš„ä¿¡æ¯potential,smess1[0]è¡¨ç¤ºå›¢1ä¸Šçš„åŸå§‹ä¿¡æ¯potential
+	vector<Message> smess2;  //smess2[k]è¡¨ç¤ºç”±å›¢k+1çš„çˆ¶å›¢ä¼ å‘å›¢k+1çš„ä¿¡æ¯potential,smess2[0]è¡¨ç¤ºå›¢1ä¸Šçš„åŸå§‹ä¿¡æ¯potential
+    vector<int> meslabel;    //meslabel[k]=0è¡¨ç¤ºå›¢k+1è¿˜æ²¡æœ‰ä»å®ƒçš„çˆ¶å›¢æ¥å—ä¿¡æ¯ï¼Œmeslabel[k]=1è¡¨ç¤ºå›¢k+1å·²ç»ä»å®ƒçš„çˆ¶å›¢æ¥å—ä¿¡æ¯
+    vector<Message> totalmess; //totalmess[k]è¡¨ç¤ºå›¢k+1ä¸Šæ‰€æœ‰ä¿¡æ¯ï¼ŒåŒ…å«åŸå§‹ä¿¡æ¯ï¼Œä»çˆ¶å›¢ä¼ æ¥çš„ä¿¡æ¯ä»¥åŠä»å­å›¢ä¼ æ¥çš„ä¿¡æ¯
 
-    vector<int> verfapos;            //verfapos[k]±íÊ¾Ò»¸öÅÅºÅ£¬ËüÊÇ°üº¬¶¥µãk+1¼°Æä¸¸¼¯µÄÒ»¸öÍÅµÄÅÅºÅ
-	vector<vector<int> > cliquefun;  //cliquefun[k]±íÊ¾Ò»¸ö¶¥µã¼¯£¬ËüÊÇÅÅºÅÎªk+1µÄÍÅÖĞ±»¸³ÓÚµÄÌõ¼ş¸ÅÂÊ,Ìõ¼şÃÜ¶ÈµÄÊ×µã¼¯
+    vector<int> verfapos;            //verfapos[k]è¡¨ç¤ºä¸€ä¸ªæ’å·ï¼Œå®ƒæ˜¯åŒ…å«é¡¶ç‚¹k+1åŠå…¶çˆ¶é›†çš„ä¸€ä¸ªå›¢çš„æ’å·
+	vector<vector<int> > cliquefun;  //cliquefun[k]è¡¨ç¤ºä¸€ä¸ªé¡¶ç‚¹é›†ï¼Œå®ƒæ˜¯æ’å·ä¸ºk+1çš„å›¢ä¸­è¢«èµ‹äºçš„æ¡ä»¶æ¦‚ç‡,æ¡ä»¶å¯†åº¦çš„é¦–ç‚¹é›†
 
-    //ÒÔÏÂ7¸ö±äÁ¿¼¯»áÔÚexchangeÖĞÓĞËù¸Ä±ä
-	vector<vector<int> > tverChi;     //ÁÙÊ±µÄ½áµã¼°Æä×Ó½áµã¼¯ºÏ
-	vector<vector<int> > tverFa;      //ÁÙÊ±µÄ¼Ò×å¼¯ºÏ
-    vector<vector<int> > tverdisFa;   //ÁÙÊ±µÄV¸ö¶¥µãµÄ¼Ò×åÖĞÀëÉ¢±äÁ¿¼¯
-    vector<vector<int> > tverconFa;   //ÁÙÊ±µÄV¸ö¶¥µãµÄ¼Ò×åÖĞÁ¬Ğø±äÁ¿¼¯
-	vector<vector<int> > tstate;   //ÁÙÊ±µÄÀëÉ¢×´Ì¬ÁĞ±í
-	vector<vector<double> > tprob; //ÁÙÊ±µÄÌõ¼ş·Ö²¼
-	vector<int> tdistrnum;         //ÁÙÊ±µÄ¸÷¸ö±äÁ¿Éæ¼°µÄ·Ö²¼¸öÊı
+    //ä»¥ä¸‹7ä¸ªå˜é‡é›†ä¼šåœ¨exchangeä¸­æœ‰æ‰€æ”¹å˜
+	vector<vector<int> > tverChi;     //ä¸´æ—¶çš„ç»“ç‚¹åŠå…¶å­ç»“ç‚¹é›†åˆ
+	vector<vector<int> > tverFa;      //ä¸´æ—¶çš„å®¶æ—é›†åˆ
+    vector<vector<int> > tverdisFa;   //ä¸´æ—¶çš„Vä¸ªé¡¶ç‚¹çš„å®¶æ—ä¸­ç¦»æ•£å˜é‡é›†
+    vector<vector<int> > tverconFa;   //ä¸´æ—¶çš„Vä¸ªé¡¶ç‚¹çš„å®¶æ—ä¸­è¿ç»­å˜é‡é›†
+	vector<vector<int> > tstate;   //ä¸´æ—¶çš„ç¦»æ•£çŠ¶æ€åˆ—è¡¨
+	vector<vector<double> > tprob; //ä¸´æ—¶çš„æ¡ä»¶åˆ†å¸ƒ
+	vector<int> tdistrnum;         //ä¸´æ—¶çš„å„ä¸ªå˜é‡æ¶‰åŠçš„åˆ†å¸ƒä¸ªæ•°
 
-	vector<vector<int> > estate;   //¿¼ÂÇÀëÉ¢Ö¤¾İ±äÁ¿È¡ÖµºóµÄÀëÉ¢×´Ì¬ÁĞ±í
-	vector<vector<double> > eprob; //¿¼ÂÇÀëÉ¢Ö¤¾İ±äÁ¿È¡ÖµºóµÄÌõ¼ş·Ö²¼
-	vector<int> edistrnum;         //¿¼ÂÇÀëÉ¢Ö¤¾İ±äÁ¿È¡ÖµºóµÄ¸÷¸ö±äÁ¿Éæ¼°µÄ·Ö²¼¸öÊı£¬Õâ3¸ö±íÔÚPropagation()¹¹½¨Ê±È·¶¨ÏÂÀ´
+	vector<vector<int> > estate;   //è€ƒè™‘ç¦»æ•£è¯æ®å˜é‡å–å€¼åçš„ç¦»æ•£çŠ¶æ€åˆ—è¡¨
+	vector<vector<double> > eprob; //è€ƒè™‘ç¦»æ•£è¯æ®å˜é‡å–å€¼åçš„æ¡ä»¶åˆ†å¸ƒ
+	vector<int> edistrnum;         //è€ƒè™‘ç¦»æ•£è¯æ®å˜é‡å–å€¼åçš„å„ä¸ªå˜é‡æ¶‰åŠçš„åˆ†å¸ƒä¸ªæ•°ï¼Œè¿™3ä¸ªè¡¨åœ¨Propagation()æ„å»ºæ—¶ç¡®å®šä¸‹æ¥
 
-    vector<int> desvisit; //ÔÚÉî¶ÈÓÅÏÈ±éÀúºó´ú½áµãÊ±£¬¼ÇÂ¼ÊÇ·ñÒÑ¾­±éÀúÁËÕâ¸ö¶¥µã£¬1±íÊ¾ÒÑ¾­±éÀú£¬0±íÊ¾Ã»ÓĞ±éÀú
-    vector<int> dreach; //¼ÇÂ¼µãÊÇ·ñÒÑ¾­dreach,1±íÊ¾dreach,0±íÊ¾Ã»ÓĞ
-    vector<vector<int> > Favisit;//×Ó¸¸±ßÊÇ·ñ·ÃÎÊ¹ı£¬1±íÊ¾·ÃÎÊ¹ı£¬0±íÊ¾Ã»ÓĞ
-    vector<vector<int> > Chivisit;//¸¸×Ó±ßÊÇ·ñ·ÃÎÊ¹ı£¬1±íÊ¾·ÃÎÊ¹ı£¬0±íÊ¾Ã»ÓĞ
+    vector<int> desvisit; //åœ¨æ·±åº¦ä¼˜å…ˆéå†åä»£ç»“ç‚¹æ—¶ï¼Œè®°å½•æ˜¯å¦å·²ç»éå†äº†è¿™ä¸ªé¡¶ç‚¹ï¼Œ1è¡¨ç¤ºå·²ç»éå†ï¼Œ0è¡¨ç¤ºæ²¡æœ‰éå†
+    vector<int> dreach; //è®°å½•ç‚¹æ˜¯å¦å·²ç»dreach,1è¡¨ç¤ºdreach,0è¡¨ç¤ºæ²¡æœ‰
+    vector<vector<int> > Favisit;//å­çˆ¶è¾¹æ˜¯å¦è®¿é—®è¿‡ï¼Œ1è¡¨ç¤ºè®¿é—®è¿‡ï¼Œ0è¡¨ç¤ºæ²¡æœ‰
+    vector<vector<int> > Chivisit;//çˆ¶å­è¾¹æ˜¯å¦è®¿é—®è¿‡ï¼Œ1è¡¨ç¤ºè®¿é—®è¿‡ï¼Œ0è¡¨ç¤ºæ²¡æœ‰
 
-    vector<int> evid;        //Ö¤¾İ±äÁ¿¼¯
-    vector<int> poster;      //·ÇÖ¤¾İ±äÁ¿¼¯£¬ĞèÒª¼ÆËãÆäÖĞÃ¿¸öµãµÄºóÑé¸ÅÂÊ
+    vector<int> evid;        //è¯æ®å˜é‡é›†
+    vector<int> poster;      //éè¯æ®å˜é‡é›†ï¼Œéœ€è¦è®¡ç®—å…¶ä¸­æ¯ä¸ªç‚¹çš„åéªŒæ¦‚ç‡
 
-     vector<int> weight;           //¶¥µãµÄµ±Ç°È¨ÖØ
-	 vector<int> tweight;          //¶¥µãµÄÁÙÊ±È¨ÖØ
-	 vector<int> label;            //¶¥µãÊÇ(1)·ñ(0)ÒÑ¾­±»±àºÅ
-	 vector<int> visit;            //¶¥µãÊÇ(1)·ñ(0)±»·ÃÎÊ¹ı
-	 vector<vector<int> > stru;    //¶¥µã¼ä½á¹¹
+     vector<int> weight;           //é¡¶ç‚¹çš„å½“å‰æƒé‡
+	 vector<int> tweight;          //é¡¶ç‚¹çš„ä¸´æ—¶æƒé‡
+	 vector<int> label;            //é¡¶ç‚¹æ˜¯(1)å¦(0)å·²ç»è¢«ç¼–å·
+	 vector<int> visit;            //é¡¶ç‚¹æ˜¯(1)å¦(0)è¢«è®¿é—®è¿‡
+	 vector<vector<int> > stru;    //é¡¶ç‚¹é—´ç»“æ„
 
 };
 
 
 vector<int> Propagation::Dreach(vector<int> & S, vector<int> & vec){
-//       cout<<"µ÷ÓÃDreach: "<<endl;
+//       cout<<"è°ƒç”¨Dreach: "<<endl;
        int i,j,k;
        vector<int> dreachve;
        for(i=0;i<V;i++){dreach[i]=0;}
-       Favisit=tverFa; //Ê¹ÓÃDreachÊ±£¬ÏÈ½«FavisitºÍChivisitÖØÖÃ
+       Favisit=tverFa; //ä½¿ç”¨Dreachæ—¶ï¼Œå…ˆå°†Favisitå’ŒChivisité‡ç½®
        Chivisit=tverChi;
        for(i=0;i<Favisit.size();i++){for(j=0;j<Favisit[i].size();j++){Favisit[i][j]=0;}}
        for(i=0;i<Chivisit.size();i++){for(j=0;j<Chivisit[i].size();j++){Chivisit[i][j]=0;}}
        for(j=0;j<S.size();j++){
           k=S[j];
-          dreach[k-1]=1;//ÈÏÎªSÖĞµÄµãÓë×ÔÉíd¿É´ïÊÇÒ»ÖÖÆ½·²µÄÇé¿ö
+          dreach[k-1]=1;//è®¤ä¸ºSä¸­çš„ç‚¹ä¸è‡ªèº«då¯è¾¾æ˜¯ä¸€ç§å¹³å‡¡çš„æƒ…å†µ
           for(i=1;i<tverFa[k-1].size();i++){
               //cout<<"dreachf( "<<k<<" , "<<tverFa[k-1][i]<<" )"<<endl;
               Favisit[k-1][i]=1;Dreachf(k,tverFa[k-1][i],vec);
@@ -594,7 +594,7 @@ vector<int> Propagation::Dreach(vector<int> & S, vector<int> & vec){
           }
        }
        for(i=0;i<V;i++){if(dreach[i]==1) dreachve.push_back(i+1);}
-       //cout<<"dreachµÄ¶¥µã"<<endl;
+       //cout<<"dreachçš„é¡¶ç‚¹"<<endl;
       // for(i=0;i<dreachve.size();i++){cout<<dreachve[i]<<" ";}cout<<endl;
        return dreachve;
 }
@@ -659,7 +659,7 @@ vector<int> Propagation::Des(int k){
 
 int Propagation::Acceptl(int l, vector<int> & vec){
     int i;
-    vector<int> vect; //vectÃèÊölºÍlµÄºó´ú¼¯µÄ²¢¼¯
+    vector<int> vect; //vectæè¿°lå’Œlçš„åä»£é›†çš„å¹¶é›†
     if(vec.empty()) return 0;
     else{
         desvisit.clear();
@@ -713,12 +713,12 @@ void Propagation::inPropagation(){
 		vec1=verFa[i];
 		vec2.clear();
 		for(j=0;j<vec1.size();j++){vec2.push_back(mnumbering[vec1[j]-1]);}
-		iter=min_element(vec2.begin(),vec2.end());       //È¡³ö¼Ò×åÖĞ×îĞ¡µÄ±àºÅ
-		k=morderver[*iter-1];                            //×îĞ¡±àºÅ¶ÔÓ¦µÄ¶¥µã
+		iter=min_element(vec2.begin(),vec2.end());       //å–å‡ºå®¶æ—ä¸­æœ€å°çš„ç¼–å·
+		k=morderver[*iter-1];                            //æœ€å°ç¼–å·å¯¹åº”çš„é¡¶ç‚¹
 	    verfapos.push_back(mverpos[k-1]);
 	}
 
-    //¶¥µãµÄ·ÖÅä·½Ê½ĞèÒªÖØĞ´
+    //é¡¶ç‚¹çš„åˆ†é…æ–¹å¼éœ€è¦é‡å†™
 	for(i=0;i<cliquenum;i++){
 		vec1.clear();
 		for(j=0;j<verfapos.size();j++){if(verfapos[j]==i+1) vec1.push_back(j+1);}
@@ -783,23 +783,23 @@ void Propagation::inPropagation(){
 }
 
 void Propagation::Messagecol(){
-   //cout<<"¿ªÊ¼ĞÅÏ¢ÊÕ¼¯£º "<<endl;
+   //cout<<"å¼€å§‹ä¿¡æ¯æ”¶é›†ï¼š "<<endl;
    int i;
    for(i=0;i<adjcliques[0].size();i++){
 	   if(adjcliques[0][i]!=cliquefa[0]){
-		   //cout<<"ÍÅ1µ÷ÓÃÍÅ "<<adjcliques[0][i]<<" ´«ÏòÍÅ1µÄĞÅÏ¢"<<endl;
+		   //cout<<"å›¢1è°ƒç”¨å›¢ "<<adjcliques[0][i]<<" ä¼ å‘å›¢1çš„ä¿¡æ¯"<<endl;
 		   Cmess(adjcliques[0][i]);
 	   }
    }
-   //cout<<"ĞÅÏ¢ÊÕ¼¯Íê±Ï "<<endl;
+   //cout<<"ä¿¡æ¯æ”¶é›†å®Œæ¯• "<<endl;
 }
 
 
 void Propagation::Localstru(Message & mes){
-	//cout<<"µ÷ÓÃLocalstru() "<<endl;
+	//cout<<"è°ƒç”¨Localstru() "<<endl;
 	int i,j,m;
     vector<int> vec1;
-	vector<vector<int> > vec;         //vecÊÇĞÅÏ¢ÖĞ¼Ò×åµÄ¼¯ºÏ
+	vector<vector<int> > vec;         //vecæ˜¯ä¿¡æ¯ä¸­å®¶æ—çš„é›†åˆ
 	for(i=0;i<mes.cmes.size();i++){
 		vec.push_back(mes.cmes[i].cverFa);
 	}
@@ -808,7 +808,7 @@ void Propagation::Localstru(Message & mes){
     }
 
 	for(i=0;i<V;i++){tverFa[i].clear();tverFa[i].push_back(i+1);}
-	for(i=0;i<vec.size();i++){ //È·¶¨¼Ò×å¼¯
+	for(i=0;i<vec.size();i++){ //ç¡®å®šå®¶æ—é›†
 	    tverFa[vec[i][0]-1]=vec[i];
 	}
 	for(i=0;i<V;i++){
@@ -831,8 +831,8 @@ void Propagation::Localstru(Message & mes){
 		tverChi[i]=vec1;
 	}
 
-	vector<Conmes> conmes=mes.cmes;  //ÀûÓÃconmes¶ÔÁ¬ĞøĞÅÏ¢½øĞĞÖØÖÃ
-	vector<Dismes> dismes=mes.dmes;   //ÀûÓÃdismes¶ÔÀëÉ¢ĞÅÏ¢½øĞĞÖØÖÃ
+	vector<Conmes> conmes=mes.cmes;  //åˆ©ç”¨conmeså¯¹è¿ç»­ä¿¡æ¯è¿›è¡Œé‡ç½®
+	vector<Dismes> dismes=mes.dmes;   //åˆ©ç”¨dismeså¯¹ç¦»æ•£ä¿¡æ¯è¿›è¡Œé‡ç½®
 	int conv,disv;
 	for(i=0;i<conmes.size();i++){
         conv=conmes[i].cverFa[0];
@@ -856,7 +856,7 @@ void Propagation::Localstru(Message & mes){
         }
         for(j=0;j<dismes[i].dverp.size();j++){tprob[disv-1].push_back(dismes[i].dverp[j]);}
     }
-	//cout<<"µ÷ÓÃLocalstru()Íê±Ï "<<endl<<endl;
+	//cout<<"è°ƒç”¨Localstru()å®Œæ¯• "<<endl<<endl;
 }
 
 
@@ -909,9 +909,9 @@ Message Propagation::Elimbarren(vector<int> & TAR, vector<int> & RN, Message & m
 }
 
 
-Message Propagation::Cmess(int k){ //·µ»ØÖµÊÇ£ºÊÕ¼¯ĞÅÏ¢Ê±£¬ÍÅk´«Ïò¸¸ÍÅµÄĞÅÏ¢potential
+Message Propagation::Cmess(int k){ //è¿”å›å€¼æ˜¯ï¼šæ”¶é›†ä¿¡æ¯æ—¶ï¼Œå›¢kä¼ å‘çˆ¶å›¢çš„ä¿¡æ¯potential
 	int i,j;
-	Message mes=omess[k-1];       //mes±íÊ¾ÍÅkÉÏµÄµ±Ç°ĞÅÏ¢
+	Message mes=omess[k-1];       //mesè¡¨ç¤ºå›¢kä¸Šçš„å½“å‰ä¿¡æ¯
 	vector<int> vec=adjcliques[k-1];
 	Message tmes,cmes;
 	if(vec.size()==1){
@@ -919,9 +919,9 @@ Message Propagation::Cmess(int k){ //·µ»ØÖµÊÇ£ºÊÕ¼¯ĞÅÏ¢Ê±£¬ÍÅk´«Ïò¸¸ÍÅµÄĞÅÏ¢pote
 	}
     else{
 		for(i=0;i<vec.size();i++){
-		//	cout<<"ÍÅ "<<k<<" µÄÁÚÍÅ "<<vec[i]<<" "<<endl;
+		//	cout<<"å›¢ "<<k<<" çš„é‚»å›¢ "<<vec[i]<<" "<<endl;
 			if(vec[i]!=cliquefa[k-1]){
-		//		cout<<"ÍÅ "<<k<<" µ÷ÓÃÍÅ"<<vec[i]<<" ´«ÏòÍÅ "<<k<<" µÄĞÅÏ¢ "<<endl;
+		//		cout<<"å›¢ "<<k<<" è°ƒç”¨å›¢"<<vec[i]<<" ä¼ å‘å›¢ "<<k<<" çš„ä¿¡æ¯ "<<endl;
 			    tmes=Cmess(vec[i]);
 			    for(j=0;j<tmes.cmes.size();j++){
 			      mes.cmes.push_back(tmes.cmes[j]);
@@ -933,46 +933,46 @@ Message Propagation::Cmess(int k){ //·µ»ØÖµÊÇ£ºÊÕ¼¯ĞÅÏ¢Ê±£¬ÍÅk´«Ïò¸¸ÍÅµÄĞÅÏ¢pote
 		}
 		cmes=Projmes(mes,k,cliquefa[k-1]);
 	}
-	smess1[k-1]=cmes;         //¼ÇÂ¼ÏÂĞÅÏ¢ÊÕ¼¯Ê±£¬ÍÅk´«ÏòËüµÄ¸¸ÍÅµÄĞÅÏ¢
+	smess1[k-1]=cmes;         //è®°å½•ä¸‹ä¿¡æ¯æ”¶é›†æ—¶ï¼Œå›¢kä¼ å‘å®ƒçš„çˆ¶å›¢çš„ä¿¡æ¯
     return cmes;
 }
 
-Message Propagation::Dmess(int k){        //kÓ¦¸Ã²»Îª1,¼´²»¿¼ÂÇÍÅ1µÄ¸¸ÍÅ0´«ÏòÍÅ1µÄĞÅÏ¢
-	//cout<<"µ÷ÓÃº¯ÊıDmess()"<<endl;
+Message Propagation::Dmess(int k){        //kåº”è¯¥ä¸ä¸º1,å³ä¸è€ƒè™‘å›¢1çš„çˆ¶å›¢0ä¼ å‘å›¢1çš„ä¿¡æ¯
+	//cout<<"è°ƒç”¨å‡½æ•°Dmess()"<<endl;
 	int i,j,m;
-	m=cliquefa[k-1];             //ÍÅkµÄ¸¸ÍÅÊÇm
-	Message mes=omess[m-1];      //ÍÅmÉÏ´øÓĞµÄÔ­Ê¼ĞÅÏ¢
+	m=cliquefa[k-1];             //å›¢kçš„çˆ¶å›¢æ˜¯m
+	Message mes=omess[m-1];      //å›¢mä¸Šå¸¦æœ‰çš„åŸå§‹ä¿¡æ¯
 
-	vector<int> vec=adjcliques[m-1];  //ÍÅmµÄÏàÁÚÍÅ
+	vector<int> vec=adjcliques[m-1];  //å›¢mçš„ç›¸é‚»å›¢
 	Message tmes,cmes;
-//	cout<<"ĞÅÏ¢·Ö·¢¹ı³Ì¿ªÊ¼£º"<<endl;
-//	cout<<"ÍÅ "<<m<<" ÏòÍÅ "<<k<<" ·Ö·¢ĞÅÏ¢"<<endl;
+//	cout<<"ä¿¡æ¯åˆ†å‘è¿‡ç¨‹å¼€å§‹ï¼š"<<endl;
+//	cout<<"å›¢ "<<m<<" å‘å›¢ "<<k<<" åˆ†å‘ä¿¡æ¯"<<endl;
 	for(i=0;i<vec.size();i++){
-		if((vec[i]!=k)&&(vec[i]!=0)){	//ÈôÍÅmµÄÏàÁÚÍÅvec[i]¼È²»ÊÇÍÅ0£¨¼´¼ÙÏëµÄÍÅ1µÄ¸¸ÍÅ£©ÓÖ²»ÊÇÍÅk
-//			cout<<"ĞÅÏ¢·Ö·¢Ê±"<<"ÍÅ "<<m<<" µ÷ÓÃÍÅ "<<vec[i]<<" ´«À´µÄĞÅÏ¢"<<endl;
+		if((vec[i]!=k)&&(vec[i]!=0)){	//è‹¥å›¢mçš„ç›¸é‚»å›¢vec[i]æ—¢ä¸æ˜¯å›¢0ï¼ˆå³å‡æƒ³çš„å›¢1çš„çˆ¶å›¢ï¼‰åˆä¸æ˜¯å›¢k
+//			cout<<"ä¿¡æ¯åˆ†å‘æ—¶"<<"å›¢ "<<m<<" è°ƒç”¨å›¢ "<<vec[i]<<" ä¼ æ¥çš„ä¿¡æ¯"<<endl;
 			if(cliquefa[vec[i]-1]==m){
-//				cout<<"ĞÅÏ¢·Ö·¢Ê±"<<"ÍÅ "<<m<<" µ÷ÓÃÍÅ "<<vec[i]<<" ´«À´µÄĞÅÏ¢ÒÑ¾­ÔÚĞÅÏ¢ÊÕ¼¯Ê±±»¼ÇÂ¼"<<endl;
+//				cout<<"ä¿¡æ¯åˆ†å‘æ—¶"<<"å›¢ "<<m<<" è°ƒç”¨å›¢ "<<vec[i]<<" ä¼ æ¥çš„ä¿¡æ¯å·²ç»åœ¨ä¿¡æ¯æ”¶é›†æ—¶è¢«è®°å½•"<<endl;
 			    tmes=smess1[vec[i]-1];
 
 			}
 			else {
-//				cout<<"ÒòÎªÍÅ "<<vec[i]<<" ÊÇÍÅ "<<m<<" µÄ¸¸ÍÅ,½øÒ»²½µ÷ÓÃĞÅÏ¢·Ö·¢"<<endl;
+//				cout<<"å› ä¸ºå›¢ "<<vec[i]<<" æ˜¯å›¢ "<<m<<" çš„çˆ¶å›¢,è¿›ä¸€æ­¥è°ƒç”¨ä¿¡æ¯åˆ†å‘"<<endl;
 				if(meslabel[m-1]==0){
-//					cout<<"ÍÅ "<<m<<" Î´½ÓÊÜ¸¸ÍÅ´«À´µÄĞÅÏ¢"<<endl;
+//					cout<<"å›¢ "<<m<<" æœªæ¥å—çˆ¶å›¢ä¼ æ¥çš„ä¿¡æ¯"<<endl;
 					tmes=Dmess(m);
 				}
 				else{
-//					cout<<"ÍÅ "<<m<<" ÔÚÖ®Ç°ĞÅÏ¢·Ö·¢¹ı³ÌÖĞ£¬ÒÑ¾­½ÓÊÜÁË¸¸ÍÅ "<<vec[i]<<" ´«À´µÄĞÅÏ¢"<<endl;
+//					cout<<"å›¢ "<<m<<" åœ¨ä¹‹å‰ä¿¡æ¯åˆ†å‘è¿‡ç¨‹ä¸­ï¼Œå·²ç»æ¥å—äº†çˆ¶å›¢ "<<vec[i]<<" ä¼ æ¥çš„ä¿¡æ¯"<<endl;
 					tmes=smess2[m-1];
 				}
 
-     /*           cout<<"Á¬ĞøĞÅÏ¢2: "<<endl;
+     /*           cout<<"è¿ç»­ä¿¡æ¯2: "<<endl;
 				for(j=0;j<tmes.cmes.size();j++){
 					for(int q=0;q<tmes.cmes[j].cverFa.size();q++){
 					    cout<<tmes.cmes[j].cverFa[q]<<" ";
 					}cout<<endl;
 				}cout<<endl;
-				cout<<"ÀëÉ¢ĞÅÏ¢2: "<<endl;
+				cout<<"ç¦»æ•£ä¿¡æ¯2: "<<endl;
 				for(j=0;j<tmes.dmes.size();j++){
 					for(int q=0;q<tmes.dmes[j].dver.size();q++){
 					    cout<<tmes.dmes[j].dver[q]<<" ";
@@ -986,16 +986,16 @@ Message Propagation::Dmess(int k){        //kÓ¦¸Ã²»Îª1,¼´²»¿¼ÂÇÍÅ1µÄ¸¸ÍÅ0´«ÏòÍÅ1
 	}
 
 	cmes=Projmes(mes,m,k);
-    smess2[k-1]=cmes;    //¼ÇÂ¼·Ö·¢ĞÅÏ¢Ê±£¬ÍÅk´ÓËüµÄ¸¸ÍÅ½ÓÊÜµÄĞÅÏ¢
+    smess2[k-1]=cmes;    //è®°å½•åˆ†å‘ä¿¡æ¯æ—¶ï¼Œå›¢kä»å®ƒçš„çˆ¶å›¢æ¥å—çš„ä¿¡æ¯
 	meslabel[k-1]=1;
-	//cout<<"µ÷ÓÃº¯ÊıDmess( "<<k<<" )Íê±Ï"<<endl;
+	//cout<<"è°ƒç”¨å‡½æ•°Dmess( "<<k<<" )å®Œæ¯•"<<endl;
     return cmes;
 }
 
 
 Message Propagation::Projmes(Message & mes, int k, int l){
-	//cout<<"µ÷ÓÃº¯ÊıProjmes()£º"<<endl;
-	//ÓÃA±íÊ¾ÍÅkÉÏµÄµ±Ç°ĞÅÏ¢µã¼¯£¬Ò»²¿·ÖÊÇÌõ¼şÃÜ¶ÈµÄÊ×µã£¬Ò»²¿·ÖÊÇÌõ¼ş¸ÅÂÊµÄÊ×µã
+	//cout<<"è°ƒç”¨å‡½æ•°Projmes()ï¼š"<<endl;
+	//ç”¨Aè¡¨ç¤ºå›¢kä¸Šçš„å½“å‰ä¿¡æ¯ç‚¹é›†ï¼Œä¸€éƒ¨åˆ†æ˜¯æ¡ä»¶å¯†åº¦çš„é¦–ç‚¹ï¼Œä¸€éƒ¨åˆ†æ˜¯æ¡ä»¶æ¦‚ç‡çš„é¦–ç‚¹
 	vector<int> A,R,RE,RN,RNC,RND,RNDE;
 	vector<int>::iterator it;
     int i,j,m,num;
@@ -1004,9 +1004,9 @@ Message Propagation::Projmes(Message & mes, int k, int l){
 	for(i=0;i<S.size();i++){it=find(R.begin(),R.end(),S[i]);if(it!=R.end()){R.erase(it);}}
 	for(i=0;i<R.size();i++){if(elabel[R[i]-1]==0) RN.push_back(R[i]);else RE.push_back(R[i]);}
 	Localstru(mes);
-	Message remess=Elimbarren(S,RN,mes),mess,mess1;//remess±íÊ¾ÏûÈ¥barren±äÁ¿ºóÓàÏÂµÄĞÅÏ¢
+	Message remess=Elimbarren(S,RN,mes),mess,mess1;//remessè¡¨ç¤ºæ¶ˆå»barrenå˜é‡åä½™ä¸‹çš„ä¿¡æ¯
 	Localstru(remess);
-	vector<int> relsvec=Dreach(S,RE);//SÄÜ¹»d¿É´ïµÄµã¼¯
+	vector<int> relsvec=Dreach(S,RE);//Sèƒ½å¤Ÿdå¯è¾¾çš„ç‚¹é›†
     mess=Exemess(relsvec,remess);
     Localstru(mess);
 
@@ -1017,9 +1017,9 @@ Message Propagation::Projmes(Message & mes, int k, int l){
     for(i=0;i<RN.size();i++){if(dcver[RN[i]-1]==-1) RND.push_back(RN[i]);else RNC.push_back(RN[i]);}
 
     for(i=RNC.size()-1;i>=0;i--){num=Domnum(RNC[i]);if(num<14) mess=Exchange(RNC[i],mess);}
-	//RNCÒÑ¾­±»´ÓĞ¡µ½´óÅÅĞò£¬´ÓĞòºÅ´óµÄµã¿ªÊ¼exchangeÏûÈ¥
+	//RNCå·²ç»è¢«ä»å°åˆ°å¤§æ’åºï¼Œä»åºå·å¤§çš„ç‚¹å¼€å§‹exchangeæ¶ˆå»
 
-	//²Ğ²îÖĞµÄ·ÇÖ¤¾İÀëÉ¢±äÁ¿¼¯ÖĞÃ»ÓĞÁ¬Ğø±äÁ¿×÷Îª×Ó½áµãµÄÀëÉ¢±äÁ¿¿ÉÒÔ±»exchangeµô
+	//æ®‹å·®ä¸­çš„éè¯æ®ç¦»æ•£å˜é‡é›†ä¸­æ²¡æœ‰è¿ç»­å˜é‡ä½œä¸ºå­ç»“ç‚¹çš„ç¦»æ•£å˜é‡å¯ä»¥è¢«exchangeæ‰
 	for(i=0;i<RND.size();i++){
             m=0;
             for(j=1;j<tverChi[RND[i]-1].size();j++){
@@ -1028,7 +1028,7 @@ Message Propagation::Projmes(Message & mes, int k, int l){
             if(m==0) RNDE.push_back(RND[i]);
     }
 	for(i=RNDE.size()-1;i>=0;i--){num=Domnum(RNDE[i]);if(num<14) mess=Exchange(RNDE[i],mess);}
-    //cout<<"µ÷ÓÃº¯ÊıProjmes()Íê±Ï"<<endl;
+    //cout<<"è°ƒç”¨å‡½æ•°Projmes()å®Œæ¯•"<<endl;
     return mess;
 }
 
@@ -1089,7 +1089,7 @@ vector<vector<int> > Propagation::EDisstate(vector<int> & vec){
 vector<int> Propagation::Inpos(vector<vector<int> > & allsta, vector<Dismes> & dmes){
     int i,j;
     int pos,power;
-	vector<int> inpos;         //ÀûÓÃÊ®½øÖÆºÍ¶à½øÖÆµÄ×ª»»¹ØÏµ
+	vector<int> inpos;         //åˆ©ç”¨åè¿›åˆ¶å’Œå¤šè¿›åˆ¶çš„è½¬æ¢å…³ç³»
 	for(i=0;i<allsta.size();i++){
 	    pos=0;power=1;
 	    for(j=0;j<allsta[i].size();j++){
@@ -1119,7 +1119,7 @@ vector<int> Propagation::Commpos(vector<int> & vec, vector<int> & vec_val,
         int i,j;
         int pos,power;
         vector<int> commpos,veds;
-        vector<int> remk=Setminus(ved,vec); //remkÖĞ×î¶àÖ»ÓĞÒ»¸öÔªËØk
+        vector<int> remk=Setminus(ved,vec); //remkä¸­æœ€å¤šåªæœ‰ä¸€ä¸ªå…ƒç´ k
         if(!remk.empty()){
            for(i=0;i<valnum[remk[0]-1];i++){
                veds.clear();
@@ -1178,15 +1178,15 @@ vector<int> Propagation::Commonpos(vector<int> & vec, vector<int> & vec_val,
 
 
 
-vector<Conmes> Propagation::Exchange(int k, Conmes & conk, int l, Conmes & conl){ //ÔÚº¯Êı¼°Æä×´Ì¬ÖĞ£¬¶ÔÁ¬Ğø±äÁ¿k¼°ÆäÔÚtverChiÖĞÍØÆËĞò×îĞ¡µÄÁ¬Ğø±äÁ¿l½øĞĞexchange
-    //cout<<"µ÷ÓÃº¯ÊıExchange("<<k<<" , "<<l<<")Á¬Ğø±äÁ¿"<<endl;
+vector<Conmes> Propagation::Exchange(int k, Conmes & conk, int l, Conmes & conl){ //åœ¨å‡½æ•°åŠå…¶çŠ¶æ€ä¸­ï¼Œå¯¹è¿ç»­å˜é‡kåŠå…¶åœ¨tverChiä¸­æ‹“æ‰‘åºæœ€å°çš„è¿ç»­å˜é‡lè¿›è¡Œexchange
+    //cout<<"è°ƒç”¨å‡½æ•°Exchange("<<k<<" , "<<l<<")è¿ç»­å˜é‡"<<endl;
 	int i,j;
 	Conmes Conm;
 	vector<Conmes>  Vecconm;
 	vector<int> veA,veB;
 	vector<double> fAk,fBl,fk,fl;
 	vector<int> vecd1,vecd2,vecc1,vecc2;
-	vector<vector<int> > st1,st2,st3;     //exchangeºókºÍlÓĞ¹²Í¬µÄÀëÉ¢×´Ì¬st3
+	vector<vector<int> > st1,st2,st3;     //exchangeåkå’Œlæœ‰å…±åŒçš„ç¦»æ•£çŠ¶æ€st3
 	vector<vector<double> > pr1,pr2,prk,prl;
 	vector<int>::iterator it;
 	st1=conk.cverFasta;
@@ -1194,28 +1194,28 @@ vector<Conmes> Propagation::Exchange(int k, Conmes & conk, int l, Conmes & conl)
 	pr1=conk.cverFaf;
 	pr2=conl.cverFaf;
 	vector<int> D(tverdisFa[k-1].size()+tverdisFa[l-1].size());
-	vecd1=tverdisFa[k-1];      //ÔİÊ±¹Ì¶¨×¡kÓëlµÄÀëÉ¢¸¸¼¯
+	vecd1=tverdisFa[k-1];      //æš‚æ—¶å›ºå®šä½kä¸lçš„ç¦»æ•£çˆ¶é›†
 	vecd2=tverdisFa[l-1];
-	merge(vecd1.begin(),vecd1.end(),vecd2.begin(),vecd2.end(),D.begin()); //½«kÓëlµÄÀëÉ¢¼Ò×å¼¯²¢ÆğÀ´
+	merge(vecd1.begin(),vecd1.end(),vecd2.begin(),vecd2.end(),D.begin()); //å°†kä¸lçš„ç¦»æ•£å®¶æ—é›†å¹¶èµ·æ¥
     sort(D.begin(),D.end());
 	it=unique(D.begin(),D.end());
-	D.erase(it,D.end());                 //È¥µôDÖĞÖØ¸´µÄµã
+	D.erase(it,D.end());                 //å»æ‰Dä¸­é‡å¤çš„ç‚¹
 	st3=EDisstate(D);
     vector<int> C(tverconFa[k-1].size()+tverconFa[l-1].size());
-    vecc1=tverconFa[k-1];       //ÔİÊ±¹Ì¶¨×¡kÓëlµÄÁ¬Ğø¸¸¼¯
+    vecc1=tverconFa[k-1];       //æš‚æ—¶å›ºå®šä½kä¸lçš„è¿ç»­çˆ¶é›†
     vecc2=tverconFa[l-1];
 	sort(vecc1.begin(),vecc1.end());
 	sort(vecc2.begin(),vecc2.end());
-	merge(vecc1.begin(),vecc1.end(),vecc2.begin(),vecc2.end(),C.begin()); //½«kÓëlµÄÁ¬Ğø¼Ò×å¼¯²¢ÆğÀ´
+	merge(vecc1.begin(),vecc1.end(),vecc2.begin(),vecc2.end(),C.begin()); //å°†kä¸lçš„è¿ç»­å®¶æ—é›†å¹¶èµ·æ¥
 	sort(C.begin(),C.end());
     it=unique(C.begin(),C.end());
-	C.erase(it,C.end());                //È¥µôCÖĞÖØ¸´µÄµã
+	C.erase(it,C.end());                //å»æ‰Cä¸­é‡å¤çš„ç‚¹
 	it=find(C.begin(),C.end(),k);
-	if(it!=C.end()) C.erase(it);        //CÊµ¼ÊÉÏÊÇexchangeºókµÄÁ¬Ğø¸¸½áµã¼¯
-	vector<int> CC=C;//CCÊÇexchangeºókÓël¹²Í¬µÄÁ¬Ğø¸¸½áµã¼¯£¬¼´´ÓCÖĞÈ¥µôµãl¿ÉµÃCC
+	if(it!=C.end()) C.erase(it);        //Cå®é™…ä¸Šæ˜¯exchangeåkçš„è¿ç»­çˆ¶ç»“ç‚¹é›†
+	vector<int> CC=C;//CCæ˜¯exchangeåkä¸lå…±åŒçš„è¿ç»­çˆ¶ç»“ç‚¹é›†ï¼Œå³ä»Cä¸­å»æ‰ç‚¹lå¯å¾—CC
 	it=find(CC.begin(),CC.end(),l);
 	if(it!=CC.end()) CC.erase(it);
-    int pos=Pos(k,tverconFa[l-1]);  //¼ÇÂ¼ÏÂkÔÚlµÄÁ¬Ğø¼Ò×å¼¯ÖĞµÄÎ»ÖÃ
+    int pos=Pos(k,tverconFa[l-1]);  //è®°å½•ä¸‹kåœ¨lçš„è¿ç»­å®¶æ—é›†ä¸­çš„ä½ç½®
 	double cof;
     double a,b;
 	for(i=0;i<st3.size();i++){
@@ -1230,27 +1230,27 @@ vector<Conmes> Propagation::Exchange(int k, Conmes & conk, int l, Conmes & conl)
 		for(j=0;j<st1.size();j++){if(equal(veA.begin(),veA.end(),st1[j].begin())){fAk=pr1[j];break;}}
 		for(j=0;j<st2.size();j++){if(equal(veB.begin(),veB.end(),st2[j].begin())){fBl=pr2[j];break;}}
 		cof=fBl[pos-1];
-        fl.push_back(fBl[0]+cof*fAk[0]); //exchangeºólµÄ»Ø¹é³£Êı
-		//exchangeºókµÄ»Ø¹é³£Êı
+        fl.push_back(fBl[0]+cof*fAk[0]); //exchangeålçš„å›å½’å¸¸æ•°
+		//exchangeåkçš„å›å½’å¸¸æ•°
 		fk.push_back((fAk[0]*fBl[fBl.size()-1]-fBl[0]*cof*fAk[fAk.size()-1])/(fBl[fBl.size()-1]+cof*cof*fAk[fAk.size()-1]));
 		for(j=0;j<CC.size();j++){
 			if(find(vecc1.begin(),vecc1.end(),CC[j])!=vecc1.end()) a=fAk[Pos(CC[j],tverconFa[k-1])-1];//a=fAk[Tpos(CC[j],k)-1];
 			else a=0;//
 			if(find(vecc2.begin(),vecc2.end(),CC[j])!=vecc2.end()) b=fBl[Pos(CC[j],tverconFa[l-1])-1];//b=fBl[Tpos(CC[j],l)-1];
 			else b=0; //
-            fl.push_back(b+cof*a); //exchangeºól¹ØÓÚCC=C\{l}»Ø¹éÏµÊı
-			//exchangeºók¹ØÓÚCC=C\{l}»Ø¹éÏµÊı
+            fl.push_back(b+cof*a); //exchangeålå…³äºCC=C\{l}å›å½’ç³»æ•°
+			//exchangeåkå…³äºCC=C\{l}å›å½’ç³»æ•°
 			fk.push_back((a*fBl[fBl.size()-1]-b*cof*fAk[fAk.size()-1])/(fBl[fBl.size()-1]+cof*cof*fAk[fAk.size()-1]));
 		}
 
-		fl.push_back(fBl[fBl.size()-1]+cof*cof*fAk[fAk.size()-1]); //exchangeºólµÄ·½²î
+		fl.push_back(fBl[fBl.size()-1]+cof*cof*fAk[fAk.size()-1]); //exchangeålçš„æ–¹å·®
 		prl.push_back(fl);
-		fk.push_back(cof*fAk[fAk.size()-1]/(fBl[fBl.size()-1]+cof*cof*fAk[fAk.size()-1])); //exchangeºók¹ØÓÚlµÄ»Ø¹éÏµÊı
-		fk.push_back(fAk[fAk.size()-1]*fBl[fBl.size()-1]/(fBl[fBl.size()-1]+cof*cof*fAk[fAk.size()-1])); //exchangeºókµÄ·½²î
+		fk.push_back(cof*fAk[fAk.size()-1]/(fBl[fBl.size()-1]+cof*cof*fAk[fAk.size()-1])); //exchangeåkå…³äºlçš„å›å½’ç³»æ•°
+		fk.push_back(fAk[fAk.size()-1]*fBl[fBl.size()-1]/(fBl[fBl.size()-1]+cof*cof*fAk[fAk.size()-1])); //exchangeåkçš„æ–¹å·®
 		prk.push_back(fk);
 	}
 
-    //¶Ô¶¯Ì¬µÄ¸÷¸ö±äÁ¿Éæ¼°µÄ·Ö²¼¸öÊı£¬¶¯Ì¬ÀëÉ¢×´Ì¬ÁĞ±í£¬¶¯Ì¬Ìõ¼ş·Ö²¼£¬½øĞĞ¸Ä±ä
+    //å¯¹åŠ¨æ€çš„å„ä¸ªå˜é‡æ¶‰åŠçš„åˆ†å¸ƒä¸ªæ•°ï¼ŒåŠ¨æ€ç¦»æ•£çŠ¶æ€åˆ—è¡¨ï¼ŒåŠ¨æ€æ¡ä»¶åˆ†å¸ƒï¼Œè¿›è¡Œæ”¹å˜
 	tdistrnum[k-1]=st3.size();
 	tdistrnum[l-1]=st3.size();
 	tstate[k-1].clear();
@@ -1261,36 +1261,36 @@ vector<Conmes> Propagation::Exchange(int k, Conmes & conk, int l, Conmes & conl)
 	tprob[l-1].clear();
 	for(i=0;i<prl.size();i++){for(j=0;j<prl[i].size();j++){tprob[l-1].push_back(prl[i][j]);}}
 
-	tverdisFa[k-1]=D;                //Íê³ÉexchangeºóµÄtverdisFa[k-1],tverdisFa[k-1]·¢ÉúÁË¸Ä±ä
+	tverdisFa[k-1]=D;                //å®Œæˆexchangeåçš„tverdisFa[k-1],tverdisFa[k-1]å‘ç”Ÿäº†æ”¹å˜
 	tverconFa[k-1].clear();
 	tverconFa[k-1].push_back(k);
-	for(i=0;i<C.size();i++){tverconFa[k-1].push_back(C[i]);} //Íê³ÉexchangeºóµÄtverconFa[k-1]£¬tverconFa[k-1]·¢ÉúÁË¸Ä±ä
+	for(i=0;i<C.size();i++){tverconFa[k-1].push_back(C[i]);} //å®Œæˆexchangeåçš„tverconFa[k-1]ï¼ŒtverconFa[k-1]å‘ç”Ÿäº†æ”¹å˜
 
 	vector<int> Uk(D.size()+C.size());
 	merge(D.begin(),D.end(),C.begin(),C.end(),Uk.begin());
 	sort(Uk.begin(),Uk.end());
 	tverFa[k-1].clear();
     tverFa[k-1].push_back(k);
-	for(i=0;i<Uk.size();i++){tverFa[k-1].push_back(Uk[i]);}//Íê³ÉexchangeºóµÄtverFa[k-1],tverFa[k-1]·¢ÉúÁË¸Ä±ä
+	for(i=0;i<Uk.size();i++){tverFa[k-1].push_back(Uk[i]);}//å®Œæˆexchangeåçš„tverFa[k-1],tverFa[k-1]å‘ç”Ÿäº†æ”¹å˜
     it=find(tverChi[k-1].begin(),tverChi[k-1].end(),l);
-	tverChi[k-1].erase(it);    //ÔÚkµÄ×Ó½áµã¼¯ÖĞÈ¥µôl,Íê³ÉexchangeºóµÄtverChi[k-1]£¬tverChi[k-1]·¢ÉúÁË¸Ä±ä
-	it=tverChi[l-1].begin();   //ÔÚlµÄ×Ó½áµã¼¯ÖĞÔö¼Ók,Íê³ÉexchangeºóµÄtverChi[l-1]£¬tverChi[l-1]·¢ÉúÁË¸Ä±ä
+	tverChi[k-1].erase(it);    //åœ¨kçš„å­ç»“ç‚¹é›†ä¸­å»æ‰l,å®Œæˆexchangeåçš„tverChi[k-1]ï¼ŒtverChi[k-1]å‘ç”Ÿäº†æ”¹å˜
+	it=tverChi[l-1].begin();   //åœ¨lçš„å­ç»“ç‚¹é›†ä¸­å¢åŠ k,å®Œæˆexchangeåçš„tverChi[l-1]ï¼ŒtverChi[l-1]å‘ç”Ÿäº†æ”¹å˜
 	it++;
 	while(it!=tverChi[l-1].end()){if(*it>k){tverChi[l-1].insert(it,k);break;}it++;}
 	if(it==tverChi[l-1].end()) tverChi[l-1].push_back(k);
-	tverdisFa[l-1]=D;              //Íê³ÉexchangeºóµÄtverdisFa[l-1]£¬tverdisFa[l-1]·¢ÉúÁË¸Ä±ä
+	tverdisFa[l-1]=D;              //å®Œæˆexchangeåçš„tverdisFa[l-1]ï¼ŒtverdisFa[l-1]å‘ç”Ÿäº†æ”¹å˜
 
 	tverconFa[l-1].clear();
 	tverconFa[l-1].push_back(l);
-	for(i=0;i<CC.size();i++){tverconFa[l-1].push_back(CC[i]);}//Íê³ÉexchangeºóµÄtverconFa[l-1]£¬tverconFa[l-1]·¢ÉúÁË¸Ä±ä
+	for(i=0;i<CC.size();i++){tverconFa[l-1].push_back(CC[i]);}//å®Œæˆexchangeåçš„tverconFa[l-1]ï¼ŒtverconFa[l-1]å‘ç”Ÿäº†æ”¹å˜
 	vector<int> Ul(D.size()+CC.size());
 	merge(D.begin(),D.end(),CC.begin(),CC.end(),Ul.begin());
 	sort(Ul.begin(),Ul.end());
 	tverFa[l-1].clear();
     tverFa[l-1].push_back(l);
-	for(i=0;i<Ul.size();i++){tverFa[l-1].push_back(Ul[i]);}//Íê³ÉexchangeºóµÄtverFa[l-1]£¬tverFa[l-1]·¢ÉúÁË¸Ä±ä
+	for(i=0;i<Ul.size();i++){tverFa[l-1].push_back(Ul[i]);}//å®Œæˆexchangeåçš„tverFa[l-1]ï¼ŒtverFa[l-1]å‘ç”Ÿäº†æ”¹å˜
 	int v;
-	for(i=1;i<tverFa[l-1].size();i++){  //exchangeºóµãlµÄ¸¸½áµãµÄ×Ó½áµã¼¯·¢ÉúÁË¸Ä±ä
+	for(i=1;i<tverFa[l-1].size();i++){  //exchangeåç‚¹lçš„çˆ¶ç»“ç‚¹çš„å­ç»“ç‚¹é›†å‘ç”Ÿäº†æ”¹å˜
 		v=tverFa[l-1][i];
 		if(find(tverChi[v-1].begin(),tverChi[v-1].end(),l)==tverChi[v-1].end()){
             it=tverChi[v-1].begin();
@@ -1324,12 +1324,12 @@ vector<Conmes> Propagation::Exchange(int k, Conmes & conk, int l, Conmes & conl)
 vector<Dismes> Propagation::Exchange(int k, Dismes & disk, int l, Dismes & disl){
         int i,j;
 
-        vector<Dismes> Vecdism;  //Vecdism[0]ÃèÊö¾­¹ıexchangeºókµÄÀëÉ¢ĞÅÏ¢£¬Vecdism[1]ÃèÊöexchangeºólµÄÀëÉ¢ĞÅÏ¢
+        vector<Dismes> Vecdism;  //Vecdism[0]æè¿°ç»è¿‡exchangeåkçš„ç¦»æ•£ä¿¡æ¯ï¼ŒVecdism[1]æè¿°exchangeålçš„ç¦»æ•£ä¿¡æ¯
         Dismes dism;
         vector<int>::iterator it;
-        vector<vector<int> > sk,sl, stk,stl; //stkºÍstl·Ö±ğ±íÊ¾exchangeºóµãkºÍµãlÉæ¼°µÄÀëÉ¢×´Ì¬
-        vector<double> pk,pl, prk,prl;//prkºÍprl·Ö±ğ±íÊ¾exchangeºóµãkºÍµãlÉæ¼°µÄ¶ÔÓ¦×´Ì¬ÏÂµÄ¸ÅÂÊ
-        vector<int> Fa,lFa,kFa;     //FaÊÇexchangeºókºÍl¹²Í¬µÄ¸¸¼¯£¬¶¼ÊÇÀëÉ¢±äÁ¿£¬kFaÊÇexchangeºókµÄ¼Ò×å¼¯ÆäÖĞÓĞl
+        vector<vector<int> > sk,sl, stk,stl; //stkå’Œstlåˆ†åˆ«è¡¨ç¤ºexchangeåç‚¹kå’Œç‚¹læ¶‰åŠçš„ç¦»æ•£çŠ¶æ€
+        vector<double> pk,pl, prk,prl;//prkå’Œprlåˆ†åˆ«è¡¨ç¤ºexchangeåç‚¹kå’Œç‚¹læ¶‰åŠçš„å¯¹åº”çŠ¶æ€ä¸‹çš„æ¦‚ç‡
+        vector<int> Fa,lFa,kFa;     //Faæ˜¯exchangeåkå’Œlå…±åŒçš„çˆ¶é›†ï¼Œéƒ½æ˜¯ç¦»æ•£å˜é‡ï¼ŒkFaæ˜¯exchangeåkçš„å®¶æ—é›†å…¶ä¸­æœ‰l
         vector<int> posk,posl,veA,veB,veC;
         double p;
         int posA;
@@ -1338,24 +1338,24 @@ vector<Dismes> Propagation::Exchange(int k, Dismes & disk, int l, Dismes & disl)
         for(i=1;i<tverFa[l-1].size();i++){if(tverFa[l-1][i]!=k) Fa.push_back(tverFa[l-1][i]);}
         sort(Fa.begin(),Fa.end());
         it=unique(Fa.begin(),Fa.end());
-	    Fa.erase(it,Fa.end()); //È¥µôFaÖĞ¶àÓàµÄµã
+	    Fa.erase(it,Fa.end()); //å»æ‰Faä¸­å¤šä½™çš„ç‚¹
 	    lFa.push_back(l);
-	    for(i=0;i<Fa.size();i++){lFa.push_back(Fa[i]);}//exchangeºólµÄ¼Ò×å¼¯
-	    Fa.push_back(l);  //ÔÚFaÖĞÌí¼Óµãl
+	    for(i=0;i<Fa.size();i++){lFa.push_back(Fa[i]);}//exchangeålçš„å®¶æ—é›†
+	    Fa.push_back(l);  //åœ¨Faä¸­æ·»åŠ ç‚¹l
 	    sort(Fa.begin(),Fa.end());
 	    kFa.push_back(k);
-	    for(i=0;i<Fa.size();i++){kFa.push_back(Fa[i]);} //exchangeºókµÄ¼Ò×å¼¯
-	    stk=EDisstate(kFa);//exchangeºókµÄ¼Ò×å¼¯¶ÔÓ¦µÄ×´Ì¬
-	    stl=EDisstate(lFa);//exchangeºólµÄ¼Ò×å¼¯¶ÔÓ¦µÄ×´Ì¬
+	    for(i=0;i<Fa.size();i++){kFa.push_back(Fa[i]);} //exchangeåkçš„å®¶æ—é›†
+	    stk=EDisstate(kFa);//exchangeåkçš„å®¶æ—é›†å¯¹åº”çš„çŠ¶æ€
+	    stl=EDisstate(lFa);//exchangeålçš„å®¶æ—é›†å¯¹åº”çš„çŠ¶æ€
 
-	    sk=disk.dversta;//exchangeÇ°kµÄ¼Ò×å¼¯¶ÔÓ¦µÄ×´Ì¬
-	    sl=disl.dversta;//exchangeÇ°lµÄ¼Ò×å¼¯¶ÔÓ¦µÄ×´Ì¬
-	    pk=disk.dverp;//exchangeÇ°kµÄ¸ÅÂÊ·Ö²¼
-	    pl=disl.dverp;//exchangeÇ°lµÄ¸ÅÂÊ·Ö²¼
+	    sk=disk.dversta;//exchangeå‰kçš„å®¶æ—é›†å¯¹åº”çš„çŠ¶æ€
+	    sl=disl.dversta;//exchangeå‰lçš„å®¶æ—é›†å¯¹åº”çš„çŠ¶æ€
+	    pk=disk.dverp;//exchangeå‰kçš„æ¦‚ç‡åˆ†å¸ƒ
+	    pl=disl.dverp;//exchangeå‰lçš„æ¦‚ç‡åˆ†å¸ƒ
         posA=Pos(k,disl.dver);
 	    for(i=0;i<stl.size();i++){
             p=0;
-            posl=Commpos(lFa,stl[i],disl.dver);  //poslºÍposkµÄsize()Ò»ÖÂ,ËüÃÇµÄsize()Ó¦ÊÇ±äÁ¿kµÄÈ¡Öµ¸öÊı
+            posl=Commpos(lFa,stl[i],disl.dver);  //poslå’Œposkçš„size()ä¸€è‡´,å®ƒä»¬çš„size()åº”æ˜¯å˜é‡kçš„å–å€¼ä¸ªæ•°
             posk=Commpos(lFa,stl[i],disk.dver);
             for(j=0;j<posl.size();j++){p=p+pl[posl[j]-1]*pk[posk[j]-1];}
             prl.push_back(p);
@@ -1402,14 +1402,14 @@ vector<Dismes> Propagation::Exchange(int k, Dismes & disk, int l, Dismes & disl)
 	    for(i=0;i<tverFa[k-1].size();i++){tverdisFa[k-1].push_back(tverFa[k-1][i]);}
 
 	    it=find(tverChi[k-1].begin(),tverChi[k-1].end(),l);
-	    tverChi[k-1].erase(it);    //ÔÚkµÄ×Ó½áµã¼¯ÖĞÈ¥µôl,Íê³ÉexchangeºóµÄtverChi[k-1]£¬tverChi[k-1]·¢ÉúÁË¸Ä±ä
-	    it=tverChi[l-1].begin();   //ÔÚlµÄ×Ó½áµã¼¯ÖĞÔö¼Ók,Íê³ÉexchangeºóµÄtverChi[l-1]£¬tverChi[l-1]·¢ÉúÁË¸Ä±ä
+	    tverChi[k-1].erase(it);    //åœ¨kçš„å­ç»“ç‚¹é›†ä¸­å»æ‰l,å®Œæˆexchangeåçš„tverChi[k-1]ï¼ŒtverChi[k-1]å‘ç”Ÿäº†æ”¹å˜
+	    it=tverChi[l-1].begin();   //åœ¨lçš„å­ç»“ç‚¹é›†ä¸­å¢åŠ k,å®Œæˆexchangeåçš„tverChi[l-1]ï¼ŒtverChi[l-1]å‘ç”Ÿäº†æ”¹å˜
 	    it++;
 	    while(it!=tverChi[l-1].end()){if(*it>k){tverChi[l-1].insert(it,k);break;}it++;}
 	    if(it==tverChi[l-1].end()) tverChi[l-1].push_back(k);
 
 	    int v;
-	    for(i=1;i<tverFa[l-1].size();i++){  //exchangeºóµãlµÄ¸¸½áµãµÄ×Ó½áµã¼¯·¢ÉúÁË¸Ä±ä
+	    for(i=1;i<tverFa[l-1].size();i++){  //exchangeåç‚¹lçš„çˆ¶ç»“ç‚¹çš„å­ç»“ç‚¹é›†å‘ç”Ÿäº†æ”¹å˜
 		  v=tverFa[l-1][i];
 		  if(find(tverChi[v-1].begin(),tverChi[v-1].end(),l)==tverChi[v-1].end()){
             it=tverChi[v-1].begin();
@@ -1432,7 +1432,7 @@ vector<Dismes> Propagation::Exchange(int k, Dismes & disk, int l, Dismes & disl)
 
 
 void Propagation::Messagedis(){
-	//cout<<"¿ªÊ¼ĞÅÏ¢·Ö·¢£º "<<endl;
+	//cout<<"å¼€å§‹ä¿¡æ¯åˆ†å‘ï¼š "<<endl;
 	int i;
 	tverFa=verFa;
 	tverChi=verChi;
@@ -1443,7 +1443,7 @@ void Propagation::Messagedis(){
     tprob=eprob;
 	tdistrnum=edistrnum;
 	for(i=2;i<cliquenum+1;i++){
-//		cout<<"ÍÅ "<<i<<" ´ÓËüµÄ¸¸ÍÅ½ÓÊÜĞÅÏ¢"<<endl;
+//		cout<<"å›¢ "<<i<<" ä»å®ƒçš„çˆ¶å›¢æ¥å—ä¿¡æ¯"<<endl;
 	    Dmess(i);
 	}
 }
@@ -1563,7 +1563,7 @@ void Propagation::OutputNet(int Ver, double cpro, int evidnum, int net_id, std::
 			else {
 				outnet2 << "our(" << i + 1 << ").discrete = false;" << endl;
 			}
-			//¸ÃÊôĞÔµÄ×÷ÓÃÊÇÖ¸Ê¾ËùÔÚÁĞ£¬Óëdata.csvÖĞµÄÁĞÃûÒ»ÖÂÊ±¿É×Ô¶¯¶ÁÈ¡µ½£¬²»ÓÃÉè¶¨¡£
+			//è¯¥å±æ€§çš„ä½œç”¨æ˜¯æŒ‡ç¤ºæ‰€åœ¨åˆ—ï¼Œä¸data.csvä¸­çš„åˆ—åä¸€è‡´æ—¶å¯è‡ªåŠ¨è¯»å–åˆ°ï¼Œä¸ç”¨è®¾å®šã€‚
 			//outnet2 << "our(" << i + 1 << ").colind = " << i + 1 << ";" << endl;
 			outnet2 << endl;
 		}
@@ -1580,14 +1580,14 @@ void Propagation::OutputData(int Ver, double cpro, int evidnum, int n_sample, in
 		return;
 	}
 	
-	// Êä³ö±íÍ·
+	// è¾“å‡ºè¡¨å¤´
 	for (size_t i = 0; i < verFa.size(); ++i) {
 		outfile << "V" << (i + 1) << (i < verFa.size() - 1 ? "," : "\n");
 	}
 	
-	// Éú³ÉÊı¾İ
+	// ç”Ÿæˆæ•°æ®
 	for (size_t n = 0; n < n_sample; ++n) {
-		//cout << "µÚ" << n + 1 << "¸öÑù±¾" << endl;
+		//cout << "ç¬¬" << n + 1 << "ä¸ªæ ·æœ¬" << endl;
 		std::vector<double> nodesValue;
 		for (size_t i = 0; i < verFa.size(); ++i) {
 			const auto& node_with_parents = verFa[i];
@@ -1596,8 +1596,8 @@ void Propagation::OutputData(int Ver, double cpro, int evidnum, int n_sample, in
 			vector<int> parentsState;
 
 			for (size_t idx : parentsIndex) {
-				// ¸ù½ÚµãÃ»ÓĞ¸¸½Úµã»áÌø¹ı
-				if (dcver[idx - 1] == -1) { // Ö»¿¼ÂÇÀëÉ¢¸¸½Úµã
+				// æ ¹èŠ‚ç‚¹æ²¡æœ‰çˆ¶èŠ‚ç‚¹ä¼šè·³è¿‡
+				if (dcver[idx - 1] == -1) { // åªè€ƒè™‘ç¦»æ•£çˆ¶èŠ‚ç‚¹
 					parentsState.push_back(nodesValue[idx - 1]);
 				}
 				else {
@@ -1629,7 +1629,7 @@ void Propagation::OutputData(int Ver, double cpro, int evidnum, int n_sample, in
 			
 
 			double nodeValue = 100;
-			// ÀëÉ¢±äÁ¿
+			// ç¦»æ•£å˜é‡
 			if (dcver[node_with_parents[0] - 1] == -1) {
 				vector<int> realStates1 = { 1 };
 				copy(parentsState.begin(), parentsState.end(), back_inserter(realStates1));
@@ -1649,7 +1649,7 @@ void Propagation::OutputData(int Ver, double cpro, int evidnum, int n_sample, in
 					nodeValue = 2;
 				}
 			}
-			// Á¬Ğø±äÁ¿
+			// è¿ç»­å˜é‡
 			else {
 				vector<double> realParas;
 				for (size_t t = 0; t < statesTable.size(); t++) {
@@ -1662,7 +1662,7 @@ void Propagation::OutputData(int Ver, double cpro, int evidnum, int n_sample, in
 				double mean = realParas.front();
 				double sigma2 = realParas.back();
 
-				// Ö»ĞèÒª¿¼ÂÇÁ¬Ğø¸¸½Úµã
+				// åªéœ€è¦è€ƒè™‘è¿ç»­çˆ¶èŠ‚ç‚¹
 				for (int p = 0; p < contParentsIndex.size(); p++) {
 					mean = mean + realParas[p + 1] * nodesValue[parentsIndex[p] - 1]; 
 				}
@@ -1671,7 +1671,7 @@ void Propagation::OutputData(int Ver, double cpro, int evidnum, int n_sample, in
 			nodesValue.push_back(nodeValue);
 		}
 
-		// Êä³öÊı¾İ
+		// è¾“å‡ºæ•°æ®
 		for (size_t i = 0; i < nodesValue.size(); ++i) {
 			outfile << nodesValue[i] << (i < nodesValue.size() - 1 ? "," : "\n");
 		}
@@ -1680,7 +1680,7 @@ void Propagation::OutputData(int Ver, double cpro, int evidnum, int n_sample, in
 
 
 Message Propagation::Exchange(int k, Message & mes){
-	//cout<<"µ÷ÓÃexchangeÏû³ıµã "<<k<<" "<<endl;
+	//cout<<"è°ƒç”¨exchangeæ¶ˆé™¤ç‚¹ "<<k<<" "<<endl;
     int i;
 	int l,posk,posl;
 	Conmes conk,conl;
@@ -1698,7 +1698,7 @@ Message Propagation::Exchange(int k, Message & mes){
           l=vec[i];
           posl=Posmess(l,mes);
           conl=vecmes[posl-1];
-	      vecm=Exchange(k,conk,l,conl);  //kÓ¦¾¡¿ÉÄÜÓëĞ¡µÄlÏÈexchange
+	      vecm=Exchange(k,conk,l,conl);  //kåº”å°½å¯èƒ½ä¸å°çš„lå…ˆexchange
 	      vecmes[posk-1]=vecm[0];
           vecmes[posl-1]=vecm[1];
 	   }
@@ -1714,8 +1714,8 @@ Message Propagation::Exchange(int k, Message & mes){
              vedmes[posl-1]=vedm[1];
          }
     }
-    for(i=1;i<tverFa[k-1].size();i++){    //µãk¾­¹ıexchangeºó£¬³ÉÎª¹ÂÁ¢µÄµã£¬ÕâÑùÔÚ½øÒ»²½Ê¹ÓÃkÖ®ÍâµÄµãÊ±
-       l=tverFa[k-1][i];                  //ÕâĞ©µãµÄ¸¸½áµãÓë×Ó½áµãÖĞ¶¼²»»áº¬ÓĞk£¬¶øk±¾Éí¼ÇÂ¼ÁËÍêÈ«exchangeºó£¬kµÄ¸¸½áµã
+    for(i=1;i<tverFa[k-1].size();i++){    //ç‚¹kç»è¿‡exchangeåï¼Œæˆä¸ºå­¤ç«‹çš„ç‚¹ï¼Œè¿™æ ·åœ¨è¿›ä¸€æ­¥ä½¿ç”¨kä¹‹å¤–çš„ç‚¹æ—¶
+       l=tverFa[k-1][i];                  //è¿™äº›ç‚¹çš„çˆ¶ç»“ç‚¹ä¸å­ç»“ç‚¹ä¸­éƒ½ä¸ä¼šå«æœ‰kï¼Œè€Œkæœ¬èº«è®°å½•äº†å®Œå…¨exchangeåï¼Œkçš„çˆ¶ç»“ç‚¹
 	   it=find(tverChi[l-1].begin(),tverChi[l-1].end(),k);
 	   if(it!=tverChi[l-1].end()) tverChi[l-1].erase(it);
 	}
@@ -1727,7 +1727,7 @@ Message Propagation::Exchange(int k, Message & mes){
 
 
 void Propagation::Totalmess(){
-    //cout<<"µ÷ÓÃTotalmess()"<<endl;
+    //cout<<"è°ƒç”¨Totalmess()"<<endl;
     int k;
     int i,j,l;
     vector<int> adjcliq;
@@ -1759,7 +1759,7 @@ void Propagation::Output(vector<Dispost> & dis, vector<Conpost> & con){
              if(dcver[poster[i]-1]==-1){
                  for(j=0;j<dis.size();j++){
                      if(poster[i]==dis[j].disver){
-                        outfile<<"µã"<<dis[j].disver<<endl;
+                        outfile<<"ç‚¹"<<dis[j].disver<<endl;
                         for(k=0;k<dis[j].state.size();k++){outfile<<dis[j].state[k]<<" ";}outfile<<endl;
                         for(k=0;k<dis[j].dispr.size();k++){outfile<<dis[j].dispr[k]<<" ";}outfile<<endl;
                         break;
@@ -1769,7 +1769,7 @@ void Propagation::Output(vector<Dispost> & dis, vector<Conpost> & con){
              else{
                   for(j=0;j<con.size();j++){
                       if(poster[i]==con[j].conver){
-                        outfile<<"µã"<<con[j].conver<<endl;
+                        outfile<<"ç‚¹"<<con[j].conver<<endl;
                         for(k=0;k<con[j].stap.size();k++){outfile<<con[j].stap[k]<<" ";}outfile<<endl;
                         for(k=0;k<con[j].converf.size();k++){
                             for(l=0;l<con[j].converf[k].size();l++){
@@ -1791,11 +1791,11 @@ void Propagation::Output(vector<Dispost> & dis, vector<Conpost> & con){
 
 
 void Propagation::Composterior(){
-    //cout<<"µ÷ÓÃComposterior"<<endl;
+    //cout<<"è°ƒç”¨Composterior"<<endl;
     int i,j,k,m;
-    vector<int> cliqvex,allvex,rvex,RN,RE; //ÍÅÖĞ·ÖÅäµÄµã¼¯,ÍÅÖĞËùÓĞµãµÄ¼¯ºÏ,allvex/cliqvex
-    vector<int> econ1,econ2;//rvexÖĞÏû³ıµÄÁ¬Ğø±äÁ¿£¬cliqvexÖĞÏû³ıµÄÁ¬Ğø±äÁ¿
-    vector<int> edis1,edis2;//rvexÖĞÏû³ıµÄÀëÉ¢±äÁ¿£¬cliqvexÖĞÏû³ıµÄÀëÉ¢±äÁ¿
+    vector<int> cliqvex,allvex,rvex,RN,RE; //å›¢ä¸­åˆ†é…çš„ç‚¹é›†,å›¢ä¸­æ‰€æœ‰ç‚¹çš„é›†åˆ,allvex/cliqvex
+    vector<int> econ1,econ2;//rvexä¸­æ¶ˆé™¤çš„è¿ç»­å˜é‡ï¼Œcliqvexä¸­æ¶ˆé™¤çš„è¿ç»­å˜é‡
+    vector<int> edis1,edis2;//rvexä¸­æ¶ˆé™¤çš„ç¦»æ•£å˜é‡ï¼Œcliqvexä¸­æ¶ˆé™¤çš„ç¦»æ•£å˜é‡
     vector<int> never,partall,rem;
     vector<int> elimordering;
     vector<int> relvec;
@@ -1804,13 +1804,13 @@ void Propagation::Composterior(){
     vector<Conmes> conmes;
 	vector<Dismes> dismes,nedism;
 	vector<Message> seqmes;
-    Dispost dp;  //ÀëÉ¢ºóÑé
-	Conpost cp;  //Á¬ĞøºóÑé
-	vector<Dispost> Dpost;//ÀëÉ¢µãµÄºóÑéĞÅÏ¢
-	vector<Conpost> Cpost;//Á¬ĞøµãµÄºóÑéĞÅÏ¢
+    Dispost dp;  //ç¦»æ•£åéªŒ
+	Conpost cp;  //è¿ç»­åéªŒ
+	vector<Dispost> Dpost;//ç¦»æ•£ç‚¹çš„åéªŒä¿¡æ¯
+	vector<Conpost> Cpost;//è¿ç»­ç‚¹çš„åéªŒä¿¡æ¯
 	Totalmess();
     for(i=0;i<cliquefun.size();i++){
-       //cout<<"ÍÅ "<<i+1<<" ÉÏµÄĞÔÖÊ"<<endl;
+       //cout<<"å›¢ "<<i+1<<" ä¸Šçš„æ€§è´¨"<<endl;
        cliqvex=cliquefun[i];
 	   if(cliqvex.size()>=1){
              mess=totalmess[i];
@@ -1818,12 +1818,12 @@ void Propagation::Composterior(){
              rvex=Setminus(allvex,cliqvex);
              RN.clear();RE.clear();
              for(j=0;j<rvex.size();j++){if(elabel[rvex[j]-1]==0) RN.push_back(rvex[j]);else RE.push_back(rvex[j]);}
-	         Localstru(mess);  //¶Ô½á¹¹½øĞĞÖØÖÃ
+	         Localstru(mess);  //å¯¹ç»“æ„è¿›è¡Œé‡ç½®
              mess=Elimbarren(cliqvex,RN,mess);
              Localstru(mess);
-             relvec=Dreach(cliqvex,RE);//µãcliqvexÄÜ¹»dreachµÄ±äÁ¿¼¯
-             mess=Exemess(relvec,mess);//µÃµ½¸úÏà¹Ø±äÁ¿Ïà¹ØµÄĞÅÏ¢
-             Localstru(mess);       //¶Ô½á¹¹½øĞĞÖØÖÃ
+             relvec=Dreach(cliqvex,RE);//ç‚¹cliqvexèƒ½å¤Ÿdreachçš„å˜é‡é›†
+             mess=Exemess(relvec,mess);//å¾—åˆ°è·Ÿç›¸å…³å˜é‡ç›¸å…³çš„ä¿¡æ¯
+             Localstru(mess);       //å¯¹ç»“æ„è¿›è¡Œé‡ç½®
              allvex=Allv(mess);
              rvex=Setminus(allvex,cliqvex);
              econ1.clear();econ2.clear();edis1.clear();edis2.clear();
@@ -1875,12 +1875,12 @@ void Propagation::Composterior(){
 			 }
 	   }
 	}
-    //Output(Dpost,Cpost);  Êä³öËùÓĞµÄºóÑé·Ö²¼
+    //Output(Dpost,Cpost);  è¾“å‡ºæ‰€æœ‰çš„åéªŒåˆ†å¸ƒ
 }
 
 
-vector<Dismes> Propagation::Dgenbycv(vector<int> & vec){//·µ»ØÖµÊÇ£ºÓÉÌõ¼şÃÜ¶È½öÊÇÀëÉ¢±äÁ¿º¯ÊıµÄÁ¬ĞøÊ×µã¼¯vec²úÉúµÄÀëÉ¢ĞÅÏ¢
-	//cout<<"µ÷ÓÃº¯ÊıDgenbycv()"<<endl;
+vector<Dismes> Propagation::Dgenbycv(vector<int> & vec){//è¿”å›å€¼æ˜¯ï¼šç”±æ¡ä»¶å¯†åº¦ä»…æ˜¯ç¦»æ•£å˜é‡å‡½æ•°çš„è¿ç»­é¦–ç‚¹é›†vecäº§ç”Ÿçš„ç¦»æ•£ä¿¡æ¯
+	//cout<<"è°ƒç”¨å‡½æ•°Dgenbycv()"<<endl;
 	int i,j,q;
 	Dismes cdmes;
 	vector<Dismes> Xcdmes;
@@ -1905,13 +1905,13 @@ vector<Dismes> Propagation::Dgenbycv(vector<int> & vec){//·µ»ØÖµÊÇ£ºÓÉÌõ¼şÃÜ¶È½ö
 		}
         Xcdmes.push_back(cdmes);
 	}
-	//cout<<"µ÷ÓÃº¯ÊıDgenbycv()Íê±Ï"<<endl;
+	//cout<<"è°ƒç”¨å‡½æ•°Dgenbycv()å®Œæ¯•"<<endl;
 	return Xcdmes;
 }
 
 
 Conpost Propagation::Comconp(int k, Message & mes){
-	//cout<<"µ÷ÓÃComconp("<<k<<") "<<endl;
+	//cout<<"è°ƒç”¨Comconp("<<k<<") "<<endl;
 	int i,j;
 	Conpost cp;
     vector<int> disfa,confa,allcon,alldis,sta,pos,never;
@@ -1919,7 +1919,7 @@ Conpost Propagation::Comconp(int k, Message & mes){
 	vector<double> mp,mpp,fp;
 	vector<vector<int> > disfasta,alldissta,trucall;
 	vector<vector<double> > conprob;
-	vector<int> A,R,RN,RE;//AÊÇÉæ¼°µÄÈ«Ìåµã£¬RÊÇAÈ¥µôkºóµÄµã¼¯£¬RNÊÇRÖĞ·ÇÖ¤¾İ±äÁ¿¼¯,REÊÇRÖĞÖ¤¾İ±äÁ¿
+	vector<int> A,R,RN,RE;//Aæ˜¯æ¶‰åŠçš„å…¨ä½“ç‚¹ï¼ŒRæ˜¯Aå»æ‰kåçš„ç‚¹é›†ï¼ŒRNæ˜¯Rä¸­éè¯æ®å˜é‡é›†,REæ˜¯Rä¸­è¯æ®å˜é‡
 	A=Allv(mes);R=A;
     vector<int>::iterator it=find(R.begin(),R.end(),k);
     if(it!=R.end()) R.erase(it);
@@ -1931,9 +1931,9 @@ Conpost Propagation::Comconp(int k, Message & mes){
     Localstru(mes);
     vector<int> veck,relkvec;
 	veck.push_back(k);
-    Message remess=Elimbarren(veck,RN,mes),mess,mess1;//remess±íÊ¾ÏûÈ¥barren±äÁ¿ºóÓàÏÂµÄĞÅÏ¢
+    Message remess=Elimbarren(veck,RN,mes),mess,mess1;//remessè¡¨ç¤ºæ¶ˆå»barrenå˜é‡åä½™ä¸‹çš„ä¿¡æ¯
     Localstru(remess);
-	relkvec=Dreach(veck,RE);//µãkÄÜ¹»dreachµÄ±äÁ¿¼¯
+	relkvec=Dreach(veck,RE);//ç‚¹kèƒ½å¤Ÿdreachçš„å˜é‡é›†
     mess=Exemess(relkvec,remess);
     Localstru(mess);
 
@@ -1951,7 +1951,7 @@ Conpost Propagation::Comconp(int k, Message & mes){
 	Exchange(k,mess);
 
 	vector<Dismes> nedism,dism=mess.dmes;
-	nedism=Dgenbycv(never);//¾­¹ıexchangeºóÍÅÖĞµÄÁ¬ĞøµÄÖ¤¾İ±äÁ¿µÄÌõ¼şÃÜ¶È»á³ÉÎªÀëÉ¢º¯Êı
+	nedism=Dgenbycv(never);//ç»è¿‡exchangeåå›¢ä¸­çš„è¿ç»­çš„è¯æ®å˜é‡çš„æ¡ä»¶å¯†åº¦ä¼šæˆä¸ºç¦»æ•£å‡½æ•°
 
 
 
@@ -1970,7 +1970,7 @@ Conpost Propagation::Comconp(int k, Message & mes){
 	for(i=0;i<dism.size();i++){mess1.dmes.push_back(dism[i]);}
     vector<int> elimordering=Elimordering(disfa,dism);
     int size=disfa.size();
-    for(j=elimordering.size()-1;j>=size;j--){mess1=Elimdisone(elimordering[j],mess1);}//°ÑdisfaÍâµÄÀëÉ¢±äÁ¿¶¼¼ÓºÍµô
+    for(j=elimordering.size()-1;j>=size;j--){mess1=Elimdisone(elimordering[j],mess1);}//æŠŠdisfaå¤–çš„ç¦»æ•£å˜é‡éƒ½åŠ å’Œæ‰
 
 
 
@@ -2016,8 +2016,8 @@ vector<int> Propagation::Elimordering(vector<int> & comdisv, vector<Dismes> & dm
      for(i=0;i<dmes.size();i++){mess.dmes.push_back(dmes[i]);}
      vector<int> allv=Allv(mess);
      for(i=0;i<allv.size();i++){if(elabel[allv[i]-1]==0) elimv.push_back(allv[i]);}
-     vector<int> elimordering;         //¶¥µã¼¯¶ÔÓ¦µÄÏûÔªË³Ğò
-     weight.clear();tweight.clear();label.clear();visit.clear();//weight,tweight,label,visitÖĞ¶¥µãË³ĞòÓëelimvÊÇÒ»ÖÂµÄ
+     vector<int> elimordering;         //é¡¶ç‚¹é›†å¯¹åº”çš„æ¶ˆå…ƒé¡ºåº
+     weight.clear();tweight.clear();label.clear();visit.clear();//weight,tweight,label,visitä¸­é¡¶ç‚¹é¡ºåºä¸elimvæ˜¯ä¸€è‡´çš„
      for(i=0;i<elimv.size();i++){weight.push_back(0);}
      for(i=0;i<elimv.size();i++){tweight.push_back(0);}
      for(i=0;i<elimv.size();i++){label.push_back(0);}
@@ -2083,7 +2083,7 @@ int Propagation::Maxpoint(vector<int> & comdisv, vector<int> & elimv){
 	   	for(i=0;i<elimv.size();i++){
 		    if((label[i]==0)&&(weight[i]>j)){
                  j=weight[i];
-                 pos=i+1;                     //¼ÇÂ¼È¨ÖØ¸ü´óµÄ¶¥µã
+                 pos=i+1;                     //è®°å½•æƒé‡æ›´å¤§çš„é¡¶ç‚¹
             }
 	    }
 	    z=elimv[pos-1];
@@ -2135,18 +2135,18 @@ int Propagation::Changew(int k, int l, vector<int> & elimv){
 
 
 void OperonG::Snumbering(){
-    int k,l,m,n;         //ÓÃÀ´Ñ­»·
-	int z;              //¼ÇÂ¼×î´óÈ¨µÄ¶¥µã
+    int k,l,m,n;         //ç”¨æ¥å¾ªç¯
+	int z;              //è®°å½•æœ€å¤§æƒçš„é¡¶ç‚¹
 	int u;
-	vector<int>::iterator iter; //ÓÃÀ´×ö·ºĞÍµü´ú
+	vector<int>::iterator iter; //ç”¨æ¥åšæ³›å‹è¿­ä»£
 	for(k=0;k<V+1;k++){
-        //Êä³ö¼ì²é
-		//cout<<"Ñ­»·Î»ÖÃ "<<k<<endl;
+        //è¾“å‡ºæ£€æŸ¥
+		//cout<<"å¾ªç¯ä½ç½® "<<k<<endl;
 		if(k==0) {
 			z=V+1;
 			slabel[V]=1;
-			//Êä³ö¼ì²é
-			//cout<<"µÚÒ»¸ö±»±àºÅ¶¥µã "<<V+1<<endl;
+			//è¾“å‡ºæ£€æŸ¥
+			//cout<<"ç¬¬ä¸€ä¸ªè¢«ç¼–å·é¡¶ç‚¹ "<<V+1<<endl;
 		}
 		else z=Compare();
 		snumbering[z-1]=V+1-k;
@@ -2160,7 +2160,7 @@ void OperonG::Snumbering(){
 
 				}
 				u=Updateweight(z,m+1);
-				//Êä³ö¼ì²é£¬¿¼²ìĞÇÍ¼±àºÅÊ±È¨ÖØµÄ¸üĞÂÇé¿ö
+				//è¾“å‡ºæ£€æŸ¥ï¼Œè€ƒå¯Ÿæ˜Ÿå›¾ç¼–å·æ—¶æƒé‡çš„æ›´æ–°æƒ…å†µ
 				//cout<<"Updateweight( "<<z<<" , "<<m+1<<" ) "<<u<<endl;
 				if(u==1){
                          sweight[m]++;
@@ -2184,7 +2184,7 @@ void OperonG::Snumbering(){
 	}
 }
 
-int OperonG::Updateweight(int k,int l){    //ĞÇÍ¼ÖĞ¶¥µãk±»±àºÅµÄÊ±ºò£¬Î´±àºÅ¶¥µãlµÄÈ¨ÖØÊÇ·ñÔö¼Ó
+int OperonG::Updateweight(int k,int l){    //æ˜Ÿå›¾ä¸­é¡¶ç‚¹kè¢«ç¼–å·çš„æ—¶å€™ï¼Œæœªç¼–å·é¡¶ç‚¹lçš„æƒé‡æ˜¯å¦å¢åŠ 
     int i=1;
 	int m;
 	svisit[k-1]=1;
@@ -2213,12 +2213,12 @@ int OperonG::Compare(){
 	for(i=0;i<V+1;i++){
 		if((slabel[i]==0)&&(sweight[i]>j)){
                  j=sweight[i];
-                 z=i+1;                     //¼ÇÂ¼È¨ÖØ¸ü´óµÄ¶¥µã
+                 z=i+1;                     //è®°å½•æƒé‡æ›´å¤§çš„é¡¶ç‚¹
 		}
 	}
 	slabel[z-1]=1;
-    //Êä³ö¼ì²é
-	//cout<<"±»±àºÅµÄ¶¥µã "<<z<<endl;
+    //è¾“å‡ºæ£€æŸ¥
+	//cout<<"è¢«ç¼–å·çš„é¡¶ç‚¹ "<<z<<endl;
 	return z;
 }
 
@@ -2256,10 +2256,10 @@ vector<vector<int> > Propagation::Disstru(vector<Dismes> & dmes){
 }
 
 
-Dispost Propagation::Comdisp(int k, Message & mes){//¼ÆËãÀëÉ¢±äÁ¿µÄºóÑé·Ö²¼Ê±£¬mesÖĞÖ»ÓĞÀëÉ¢ĞÅÏ¢mes.dmes
-	//cout<<"µ÷ÓÃComdisp()"<<endl;
+Dispost Propagation::Comdisp(int k, Message & mes){//è®¡ç®—ç¦»æ•£å˜é‡çš„åéªŒåˆ†å¸ƒæ—¶ï¼Œmesä¸­åªæœ‰ç¦»æ•£ä¿¡æ¯mes.dmes
+	//cout<<"è°ƒç”¨Comdisp()"<<endl;
 	int i,j,m,pos;
-	vector<int> allver,ksta,allcon,never;   //allverÊÇmesÖĞËùÓĞµÄÀëÉ¢µã,kstaÊÇµãkµÄ×´Ì¬
+	vector<int> allver,ksta,allcon,never;   //allveræ˜¯mesä¸­æ‰€æœ‰çš„ç¦»æ•£ç‚¹,kstaæ˜¯ç‚¹kçš„çŠ¶æ€
 	vector<vector<int> > allversta;
 	Dispost dp;
 	double sum=0;
@@ -2269,12 +2269,12 @@ Dispost Propagation::Comdisp(int k, Message & mes){//¼ÆËãÀëÉ¢±äÁ¿µÄºóÑé·Ö²¼Ê±£¬m
     Message mess1=mes;
     dispk.push_back(k);
     vector<int> elimordering=Elimordering(dispk,mes.dmes);
-    for(j=elimordering.size()-1;j>=1;j--){mess1=Elimdisone(elimordering[j],mess1);}//°ÑkÍâµÄÀëÉ¢±äÁ¿¶¼¼ÓºÍµô
+    for(j=elimordering.size()-1;j>=1;j--){mess1=Elimdisone(elimordering[j],mess1);}//æŠŠkå¤–çš„ç¦»æ•£å˜é‡éƒ½åŠ å’Œæ‰
     dism=mess1.dmes;
 //    cout<<"it is too long"<<endl;
-    allver=Allv(mess1); //kÊÇallverÖĞÎ¨Ò»µÄ·ÇÖ¤¾İÀëÉ¢±äÁ¿£¬ËùÒÔallversta.size()¾ÍÊÇ±äÁ¿kµÄÈ¡Öµ¸öÊı
+    allver=Allv(mess1); //kæ˜¯allverä¸­å”¯ä¸€çš„éè¯æ®ç¦»æ•£å˜é‡ï¼Œæ‰€ä»¥allversta.size()å°±æ˜¯å˜é‡kçš„å–å€¼ä¸ªæ•°
 	allversta=EDisstate(allver);
-	for(i=0;i<allversta.size();i++){mp.push_back(Multip(allver,allversta[i],dism));} //MultipÏàµ±ÓÚ½«InposºÍMultiplepºÏ²¢ÔÚÒ»Æğ
+	for(i=0;i<allversta.size();i++){mp.push_back(Multip(allver,allversta[i],dism));} //Multipç›¸å½“äºå°†Inposå’ŒMultiplepåˆå¹¶åœ¨ä¸€èµ·
 	for(i=0;i<valnum[k-1];i++){ksta.push_back(i+1);mpp.push_back(0);}
 	pos=Pos(k,allver);
 	for(i=0;i<allversta.size();i++){m=allversta[i][pos-1];mpp[m-1]=mp[i];}
@@ -2283,7 +2283,7 @@ Dispost Propagation::Comdisp(int k, Message & mes){//¼ÆËãÀëÉ¢±äÁ¿µÄºóÑé·Ö²¼Ê±£¬m
 	dp.disver=k;
 	dp.state=ksta;
 	dp.dispr=fp;
-	//cout<<"µã "<<k<<" µÄºóÑé¸ÅÂÊ"<<endl;
+	//cout<<"ç‚¹ "<<k<<" çš„åéªŒæ¦‚ç‡"<<endl;
 	//for(i=0;i<fp.size();i++){cout<<fp[i]<<" ";}cout<<endl;
     return dp;
 }
@@ -2308,8 +2308,8 @@ Message Propagation::Elimdisone(int k, Message & mess){
 	  vector<double> mp,remp;
       vector<vector<int> > allversta,reversta;
       vector<int>::iterator it;
-      Dismes gedism;      //ÓÉÓÚ¶ÔkÇóºÍ£¬ĞÂ²úÉúµÄÀëÉ¢ĞÅÏ¢
-      vector<Dismes> redism,hadism; //redism¼ÇÂ¼ÓàÏÂµÄÀëÉ¢ĞÅÏ¢£¬hadism¼ÇÂ¼ÎªÁËÏûµôkĞèÒª´¦ÀíµÄÀëÉ¢ĞÅÏ¢
+      Dismes gedism;      //ç”±äºå¯¹kæ±‚å’Œï¼Œæ–°äº§ç”Ÿçš„ç¦»æ•£ä¿¡æ¯
+      vector<Dismes> redism,hadism; //redismè®°å½•ä½™ä¸‹çš„ç¦»æ•£ä¿¡æ¯ï¼Œhadismè®°å½•ä¸ºäº†æ¶ˆæ‰kéœ€è¦å¤„ç†çš„ç¦»æ•£ä¿¡æ¯
       for(i=0;i<mess.dmes.size();i++){
           it=find(mess.dmes[i].dver.begin(),mess.dmes[i].dver.end(),k);
           if(it!=mess.dmes[i].dver.end()) hadism.push_back(mess.dmes[i]);
@@ -2321,7 +2321,7 @@ Message Propagation::Elimdisone(int k, Message & mess){
 	  it=unique(allver.begin(),allver.end());
 	  allver.erase(it,allver.end());
 	  it=find(allver.begin(),allver.end(),k);
-	  allver.erase(it); //allver´ú±íµÄÊÇÏûµôkºóµÄÀëÉ¢º¯ÊıÉæ¼°µÄ±äÁ¿
+	  allver.erase(it); //allverä»£è¡¨çš„æ˜¯æ¶ˆæ‰kåçš„ç¦»æ•£å‡½æ•°æ¶‰åŠçš„å˜é‡
       allversta=EDisstate(allver);
       vector<int> sta,posik,powerk,inpos;
       vector<vector<int> > vesta;
@@ -2401,7 +2401,7 @@ vector<int> Propagation::Allv(Message & mes){
 
 
 double Propagation::Multip(vector<int> & vec,vector<int> & vecs, vector<Dismes> & dmes){
-//	cout<<"µ÷ÓÃMultip"<<endl;
+//	cout<<"è°ƒç”¨Multip"<<endl;
 	int i,j;
 	double p=1;
 	vector<int> sta;
@@ -2412,7 +2412,7 @@ double Propagation::Multip(vector<int> & vec,vector<int> & vecs, vector<Dismes> 
 		allsta.push_back(sta);
 	}
 	int pos,power;
-	vector<int> inpos;         //ÀûÓÃÊ®½øÖÆºÍ¶à½øÖÆµÄ×ª»»¹ØÏµ
+	vector<int> inpos;         //åˆ©ç”¨åè¿›åˆ¶å’Œå¤šè¿›åˆ¶çš„è½¬æ¢å…³ç³»
 	for(i=0;i<allsta.size();i++){
 	    pos=0;power=1;
 	    for(j=0;j<allsta[i].size();j++){
@@ -2425,7 +2425,7 @@ double Propagation::Multip(vector<int> & vec,vector<int> & vecs, vector<Dismes> 
 	}
 	//for(i=0;i<inpos.size();i++){cout<<inpos[i]<<" ";}cout<<endl;
 	for(i=0;i<inpos.size();i++){p=p*dmes[i].dverp[inpos[i]];}
-//	cout<<"Íê³ÉMultip"<<endl;
+//	cout<<"å®ŒæˆMultip"<<endl;
     return p;
 }
 
@@ -2526,7 +2526,7 @@ vector<vector<int> > Propagation::Tstate(int k){
 	        vec.push_back(tstate[k-1][l]);
 		}
 
-		ve.push_back(vec); //ÒòÎªÕâÊÇÒ»¸ö²åÈëº¯Êı£¬¼´Ê¹µ±tstate[k-1].size()=0Ê±£¬ÈÔÓĞve.size()=1
+		ve.push_back(vec); //å› ä¸ºè¿™æ˜¯ä¸€ä¸ªæ’å…¥å‡½æ•°ï¼Œå³ä½¿å½“tstate[k-1].size()=0æ—¶ï¼Œä»æœ‰ve.size()=1
 	}
 	return ve;
 }
@@ -2567,7 +2567,7 @@ int Propagation::Tpos(int k,int l){
 
 
 
-int OperonG::Complete(vector<int> vec){   //¼ìÑéµã¼¯ÔÚµÀÒåÍ¼µÄ¼«Ğ¡MÈı½Ç»¯Í¼ÖĞÊÇ·ñÍêÈ«
+int OperonG::Complete(vector<int> vec){   //æ£€éªŒç‚¹é›†åœ¨é“ä¹‰å›¾çš„æå°Mä¸‰è§’åŒ–å›¾ä¸­æ˜¯å¦å®Œå…¨
     int l,m;
 	int n,s;
 	vector<int>::iterator iter1,iter2;
@@ -2584,37 +2584,37 @@ int OperonG::Complete(vector<int> vec){   //¼ìÑéµã¼¯ÔÚµÀÒåÍ¼µÄ¼«Ğ¡MÈı½Ç»¯Í¼ÖĞÊÇ·
     return 1;
 }
 
-int OperonG::Mverpos(){  //¼ÇÂ¼ÏÂµãÓëÍÅµÄÎ»ÖÃµÄ¹ØÏµ,²¢·µ»ØµÀÒåÍ¼µÄ¼«Ğ¡mÈı½Ç»¯Í¼ÖĞÍÅµÄ¸öÊı
+int OperonG::Mverpos(){  //è®°å½•ä¸‹ç‚¹ä¸å›¢çš„ä½ç½®çš„å…³ç³»,å¹¶è¿”å›é“ä¹‰å›¾çš„æå°mä¸‰è§’åŒ–å›¾ä¸­å›¢çš„ä¸ªæ•°
 	 int k;
 	 int z;
-	 int l=0,m=0;      //m×îºó½«±íÊ¾MËØ¿éµÄ×ÜÊı
+	 int l=0,m=0;      //mæœ€åå°†è¡¨ç¤ºMç´ å—çš„æ€»æ•°
 	 msignver.clear();
 	 mcliquever.clear();
 	 for(k=0;k<V;k++){
-		 z=morderver[k];     //zÊÇ±àºÅÎªk+1µÄµã
-		 //Êä³ö¼ì²é
+		 z=morderver[k];     //zæ˜¯ç¼–å·ä¸ºk+1çš„ç‚¹
+		 //è¾“å‡ºæ£€æŸ¥
 		 //cout<<"z "<<z<<" "<<" m "<<m<<" mmadj[z-1] "<<mmadj[z-1].size()<<endl;
          if(l<=mmadj[z-1].size()){
 			  m++;
-	          mverpos[z-1]=m;             //¼ÇÂ¼µãzËùÔÚµÄÍÅµÄÅÅºÅ
-			  mcliquever.push_front(z);   //¼ÇÂ¼ĞÂÍÅ¿ªÊ¼µÄµã
-			  if(l!=0) msignver.push_front(morderver[k-1]); //¼ÇÂ¼Ç°Ò»¸öÍÅµÄ±êÊ¶µã
+	          mverpos[z-1]=m;             //è®°å½•ç‚¹zæ‰€åœ¨çš„å›¢çš„æ’å·
+			  mcliquever.push_front(z);   //è®°å½•æ–°å›¢å¼€å§‹çš„ç‚¹
+			  if(l!=0) msignver.push_front(morderver[k-1]); //è®°å½•å‰ä¸€ä¸ªå›¢çš„æ ‡è¯†ç‚¹
 		 }
 		 else mverpos[z-1]=m;
          l=mmadj[z-1].size();
 	 }
 	 msignver.push_front(morderver[V-1]);
      for(k=0;k<V;k++){
-	     mverpos[k]=m+1-mverpos[k];         //µãk+1ËùÔÚµÄÍÅµÄÅÅºÅ
+	     mverpos[k]=m+1-mverpos[k];         //ç‚¹k+1æ‰€åœ¨çš„å›¢çš„æ’å·
 	 }
-	 //Êä³ö¼ìÑé
+	 //è¾“å‡ºæ£€éªŒ
 /*     for(k=0;k<m;k++){
 	   cout<<msignver[k]<<" ";
 	 }*/
 	 return m;
 }
 
-void OperonG::Constructtree(){         //¹¹½¨µÀÒåÍ¼µÄ¼«Ğ¡mÈı½Ç»¯Í¼ÖĞÍÅµÄjunction tree
+void OperonG::Constructtree(){         //æ„å»ºé“ä¹‰å›¾çš„æå°mä¸‰è§’åŒ–å›¾ä¸­å›¢çš„junction tree
     cliques.clear();
     cliquefa.clear();
     adjcliques.clear();
@@ -2630,11 +2630,11 @@ void OperonG::Constructtree(){         //¹¹½¨µÀÒåÍ¼µÄ¼«Ğ¡mÈı½Ç»¯Í¼ÖĞÍÅµÄjunction
         iter=mmadj[z-1].begin();
 		for(;iter!=mmadj[z-1].end();iter++){
 		    if(iter!=mmadj[z-1].begin())
-			   vec.push_back(mnumbering[*iter-1]);    //vec¼ÇÂ¼µ±Ê±µÄµ¥µ÷ÁÚ¼¯ÖĞµãµÄ±àºÅ
+			   vec.push_back(mnumbering[*iter-1]);    //vecè®°å½•å½“æ—¶çš„å•è°ƒé‚»é›†ä¸­ç‚¹çš„ç¼–å·
 		}
-        iter=min_element(vec.begin(),vec.end());       //È¡³ö×îĞ¡µÄ±àºÅ
-        x=morderver[*iter-1];                          //×îĞ¡±àºÅ¶ÔÓ¦µÄµã
-		cliquefa.push_back(mverpos[x-1]);                //´æÈë×îĞ¡±àºÅ¶ÔÓ¦µÄµãËùÔÚÍÅµÄÅÅºÅ
+        iter=min_element(vec.begin(),vec.end());       //å–å‡ºæœ€å°çš„ç¼–å·
+        x=morderver[*iter-1];                          //æœ€å°ç¼–å·å¯¹åº”çš„ç‚¹
+		cliquefa.push_back(mverpos[x-1]);                //å­˜å…¥æœ€å°ç¼–å·å¯¹åº”çš„ç‚¹æ‰€åœ¨å›¢çš„æ’å·
 	}
     for(k=0;k<cliquenum;k++){
 	    z=mcliquever[k];
@@ -2651,8 +2651,8 @@ void OperonG::Constructtree(){         //¹¹½¨µÀÒåÍ¼µÄ¼«Ğ¡mÈı½Ç»¯Í¼ÖĞÍÅµÄjunction
 }
 
 void OperonG::Morsmcs(){
-	int k,l;//×öÑ­»·ÓÃ
-	int z;         //¼ÇÂ¼×î´óÈ¨µÄ¶¥µã
+	int k,l;//åšå¾ªç¯ç”¨
+	int z;         //è®°å½•æœ€å¤§æƒçš„é¡¶ç‚¹
 	mmadj.clear();
 
 	for(k=0;k<V;k++){
@@ -2662,17 +2662,17 @@ void OperonG::Morsmcs(){
 		   }
 		   if(l!=V){z=l+1; mlabel[z-1]=1;}
 		   else{z=1;mlabel[z-1]=1;}
-	  //   cout<<"µÚÒ»¸ö±»±àºÅµÄ¶¥µã "<<z<<endl;
-	   }  //Èç¹ûÓĞÀëÉ¢µã£¬µÚÒ»¸ö±àºÅµãµÄÎ»ÖÃÊÇÈÎÒ»ÀëÉ¢µã£¬Èç¹ûÃ»ÓĞ£¬Ñ¡µÚÒ»¸öÁ¬Ğøµã×îÏÈ±àºÅ
+	  //   cout<<"ç¬¬ä¸€ä¸ªè¢«ç¼–å·çš„é¡¶ç‚¹ "<<z<<endl;
+	   }  //å¦‚æœæœ‰ç¦»æ•£ç‚¹ï¼Œç¬¬ä¸€ä¸ªç¼–å·ç‚¹çš„ä½ç½®æ˜¯ä»»ä¸€ç¦»æ•£ç‚¹ï¼Œå¦‚æœæ²¡æœ‰ï¼Œé€‰ç¬¬ä¸€ä¸ªè¿ç»­ç‚¹æœ€å…ˆç¼–å·
 	   else z=Mcompare();
 	   mnumbering[z-1]=V-k;
 	   morderver.push_front(z);
 	   Mupdate(z);
 	}
-	//Êä³ö¼ì²é
+	//è¾“å‡ºæ£€æŸ¥
 	int m;
 	vector<int> vec;
-	for(k=0;k<V;k++){                       //¹¹½¨µ¥µ÷ÁÚ¼¯
+	for(k=0;k<V;k++){                       //æ„å»ºå•è°ƒé‚»é›†
 		   vec.clear();
 	       vector<int>::iterator iter=mtriadj[k].begin();
 		   for(;iter!=mtriadj[k].end();iter++){
@@ -2683,8 +2683,8 @@ void OperonG::Morsmcs(){
 		   mmadj.push_back(vec);
 	}
 
-	//Êä³ö¼ì²é£¬Êä³öµ¥µ÷ÁÚ¼¯
-/*	cout<<"µ¥µ÷ÁÚ¼¯: "<<endl;
+	//è¾“å‡ºæ£€æŸ¥ï¼Œè¾“å‡ºå•è°ƒé‚»é›†
+/*	cout<<"å•è°ƒé‚»é›†: "<<endl;
 	 for(k=0;k<V;k++){
 	    vector<int>::iterator it=mmadj[k].begin();
 	   for(;it!=mmadj[k].end();it++){
@@ -2694,7 +2694,7 @@ void OperonG::Morsmcs(){
 	}*/
 }
 
-void OperonG::Mupdate(int k){   //µÀÒåÍ¼ÖĞ¶¥µãk±»±àºÅµÄÊ±ºò£¬Ôö¼ÓÆäËû¶¥µãµÄÈ¨ÖØ
+void OperonG::Mupdate(int k){   //é“ä¹‰å›¾ä¸­é¡¶ç‚¹kè¢«ç¼–å·çš„æ—¶å€™ï¼Œå¢åŠ å…¶ä»–é¡¶ç‚¹çš„æƒé‡
     int i=1,j;
 	vector<int> vec=mtriadj[k-1];
 
@@ -2710,21 +2710,21 @@ int OperonG::Mcompare(){
 	int j=-1,k,z;
 	for(i=0;i<V;i++){
 		if((mlabel[i]==0)&&(mweight[i]>j)){
-                 j=mweight[i];      //j¼ÇÂ¼µÄÊÇÎ´±àºÅ¶¥µãÖĞµÚÒ»¸ö×î´óµÄÈ¨ÖØ
-                 z=i+1;             //z¼ÇÂ¼µÄÊÇµÚÒ»¸öÈ¨ÖØ×î´óµÄÎ´±àºÅ¶¥µã
+                 j=mweight[i];      //jè®°å½•çš„æ˜¯æœªç¼–å·é¡¶ç‚¹ä¸­ç¬¬ä¸€ä¸ªæœ€å¤§çš„æƒé‡
+                 z=i+1;             //zè®°å½•çš„æ˜¯ç¬¬ä¸€ä¸ªæƒé‡æœ€å¤§çš„æœªç¼–å·é¡¶ç‚¹
 		}
 	}
 	for(i=z-1;i<V;i++){
         k=mweight[i];
 		if((k==j)&&(dcver[i]==-1)){
 			if(mlabel[i]==0){
-			//	   cout<<"±»±àºÅµÄÀëÉ¢¶¥µã "<<i+1<<endl;
+			//	   cout<<"è¢«ç¼–å·çš„ç¦»æ•£é¡¶ç‚¹ "<<i+1<<endl;
                    mlabel[i]=1;
 				   return i+1;
 			}
 		}
 	}
-//	cout<<"±»±àºÅµÄÁ¬Ğø¶¥µã "<<z<<endl;
+//	cout<<"è¢«ç¼–å·çš„è¿ç»­é¡¶ç‚¹ "<<z<<endl;
 	mlabel[z-1]=1;
 	return z;
 
@@ -2764,7 +2764,7 @@ void MoralG::inMoralG(){
 	for(k=0;k<V;k++){
 	      ver=verFa[k];
 		  for(l=0;l<ver.size();l++){
-			  for(m=l+1;m<ver.size();m++){     //°Ñ¼Ò×åÍêÈ«»¯
+			  for(m=l+1;m<ver.size();m++){     //æŠŠå®¶æ—å®Œå…¨åŒ–
 			      pos1=ver[l];
 				  pos2=ver[m];
 				  iter1=find(moradj[pos1-1].begin(),moradj[pos1-1].end(),pos2);
@@ -2831,16 +2831,16 @@ void CreateSubDirs(const std::wstring& base, const std::vector<std::wstring>& di
 
 
 int main() {
-	// ÉèÖÃÊä³öµÄÄ¿Â¼
+	// è®¾ç½®è¾“å‡ºçš„ç›®å½•
 	std::wstring base = L"results";
 	std::vector<std::wstring> dirs = { L"structure", L"data", L"evidence"};
 	CreateSubDirs(base, dirs);
 
-	// Ä£ÄâÉèÖÃ
+	// æ¨¡æ‹Ÿè®¾ç½®
 	vector<int> samples = { 1, 1000 };
 	vector<int> vertexes = { 50, 75, 100 };
 	vector<double> continuous = { 0, 0.25, 0.5, 0.75, 1 };
-	int n_evidence;
+	vector<int> evidence_values;
 	clock_t time_start, time_mid, time_end;
 	ofstream time_log("results/timecost.txt");
 	if (!time_log) {
@@ -2850,15 +2850,16 @@ int main() {
 
 	Propagation bt;
 	for (int n_vertex : vertexes) {
+		for (size_t e = 0; e < n_vertex; e += 5) {
+			evidence_values.push_back(e);
+		}
 		for (double p_continuous : continuous) {
-			// Iterate over each evidence variable count.
-			for (size_t e = 0; e < 10; ++e) {
-				n_evidence = (e * n_vertex) / 10;
+			for (const auto& n_evidence : evidence_values) {
 				time_log << n_vertex << " " << p_continuous << " " << n_evidence << endl;
-				cout << "¶¥µãÊı: " << n_vertex << " Á¬Ğø±äÁ¿±ÈÀı: " << p_continuous << " Ö¤¾İ±äÁ¿Êı: " << n_evidence << endl;
+				cout << "é¡¶ç‚¹æ•°: " << n_vertex << " è¿ç»­å˜é‡æ¯”ä¾‹: " << p_continuous << " è¯æ®å˜é‡æ•°: " << n_evidence << endl;
 				// Randomly generate 10 Bayesian networks.
 				for (size_t b = 0; b < 100; ++b) {
-					std::mt19937 gen(b); // ÒÔbÎªÖÖ×ÓµÄMersenne TwisterÉú³ÉÆ÷
+					std::mt19937 gen(b); // ä»¥bä¸ºç§å­çš„Mersenne Twisterç”Ÿæˆå™¨
 					bt.inBayesnet(n_vertex, p_continuous, n_evidence, gen);
 					bt.Outputstru(n_vertex, p_continuous, n_evidence, b, gen);
 					bt.OutputNet(n_vertex, p_continuous, n_evidence, b, gen);
@@ -2883,6 +2884,7 @@ int main() {
 				}
 			}
 		}
+		evidence_values.clear();
 	}
 
 	system("pause");
