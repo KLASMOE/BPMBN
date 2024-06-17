@@ -24,21 +24,21 @@ def parse_file(filename):
     return data
 
 
-def parse2(data, chunk_size=50):
+def parse2(data, group_sizes):
     """
-    每 chunk_size 个结果计算一次平均值。
+    按照指定的组大小分组，并计算每组的平均值。
 
     :param data: 由 parse_file 函数返回的数据列表。
-    :param chunk_size: 每个数据块的大小，默认为50。
-    :return: 一个列表，包含每个数据块的各统计值的平均值。
+    :param group_sizes: 一个列表，包含每个组的大小。
+    :return: 一个列表，包含每个组的各统计值的平均值。
     """
-    # 分割数据为指定大小的块
-    chunks = [data[i:i + chunk_size] for i in range(0, len(data), chunk_size)]
-
-    # 存储每个块的平均值结果
+    start_index = 0
     mean_results = []
 
-    for chunk in chunks:
+    for size in group_sizes:
+        chunk = data[start_index:start_index + size]
+        start_index += size
+
         # 初始化用于累加各统计值的变量
         sum_avg_triangulation_time = 0
         sum_avg_computation_time = 0
@@ -118,13 +118,16 @@ if __name__ == "__main__":
     # Total average time costs
     # to find minimal strong triangulations and strong junction trees
     # for networks with 50, 75 and 100 variables
-    mean_results = parse2(parsed_data, 50)
-    for i, chunk_means in enumerate(mean_results):
-        print(f"Chunk {i+1}: {chunk_means}")
+    group_sizes = [50, 75, 100]
+    node_labels = ["50 nodes", "75 nodes", "100 nodes"]
+    mean_results = parse2(parsed_data, group_sizes)
+
+    for label, chunk_means in zip(node_labels, mean_results):
+        print(f"{label}: {chunk_means}")
 
     # Time costs of network
     # with 100 variables 0.5 continuous variables proportion and 10 evidences
-    no = 121
+    no = 167
     print(parsed_data[no].get('info'))
     print('avg_computation_time: ',
           round(parsed_data[no].get('avg_computation_time'), 4))
